@@ -21,5 +21,5 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.cjs',
   },
-  base: './'
+  base: '/'
 })
