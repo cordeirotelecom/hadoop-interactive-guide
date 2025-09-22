@@ -1244,6 +1244,205 @@ function App() {
                       </div>
                     </div>
                   </div>
+                  
+                  {/* Cloud Deployment Section */}
+                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border border-blue-200 mt-6">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      ☁️ Hadoop na Cloud - Deployment em Produção
+                      <Badge variant="secondary">Cloud Providers</Badge>
+                    </h3>
+                    
+                    <div className="grid md:grid-cols-3 gap-6">
+                      {/* AWS EMR */}
+                      <div className="bg-white p-5 rounded-lg border border-blue-100">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
+                            <span className="text-white font-bold text-xs">AWS</span>
+                          </div>
+                          <h4 className="font-semibold text-blue-800">Amazon EMR</h4>
+                        </div>
+                        
+                        <div className="space-y-3 text-sm">
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">🚀 Quick Start</div>
+                            <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs">
+                              <div>aws emr create-cluster \</div>
+                              <div className="ml-2">--name "HadoopCluster" \</div>
+                              <div className="ml-2">--instance-type m5.xlarge \</div>
+                              <div className="ml-2">--instance-count 4 \</div>
+                              <div className="ml-2">--applications Name=Hadoop Name=Spark</div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">💰 Pricing</div>
+                            <div className="text-gray-600">
+                              <div>• $0.27/hora por m5.xlarge</div>
+                              <div>• Auto-scaling disponível</div>
+                              <div>• Spot instances para economia</div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">✅ Vantagens</div>
+                            <div className="text-gray-600">
+                              <div>• Integração S3 nativa</div>
+                              <div>• Gerenciamento automático</div>
+                              <div>• 200+ aplicações pré-instaladas</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Azure HDInsight */}
+                      <div className="bg-white p-5 rounded-lg border border-blue-100">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+                            <span className="text-white font-bold text-xs">AZ</span>
+                          </div>
+                          <h4 className="font-semibold text-blue-800">Azure HDInsight</h4>
+                        </div>
+                        
+                        <div className="space-y-3 text-sm">
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">🚀 ARM Template</div>
+                            <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs">
+                              <div>az hdinsight create \</div>
+                              <div className="ml-2">--name hadoopcluster \</div>
+                              <div className="ml-2">--resource-group myRG \</div>
+                              <div className="ml-2">--type Hadoop \</div>
+                              <div className="ml-2">--component-version Hadoop=3.1</div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">💰 Pricing</div>
+                            <div className="text-gray-600">
+                              <div>• $0.32/hora por Standard_D3_v2</div>
+                              <div>• Reserved instances (-40%)</div>
+                              <div>• Integration com Azure services</div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">✅ Vantagens</div>
+                            <div className="text-gray-600">
+                              <div>• Integração Azure Data Lake</div>
+                              <div>• Enterprise security (ESP)</div>
+                              <div>• Power BI integration</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Google Cloud Dataproc */}
+                      <div className="bg-white p-5 rounded-lg border border-blue-100">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
+                            <span className="text-white font-bold text-xs">GCP</span>
+                          </div>
+                          <h4 className="font-semibold text-blue-800">Google Dataproc</h4>
+                        </div>
+                        
+                        <div className="space-y-3 text-sm">
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">🚀 gcloud CLI</div>
+                            <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs">
+                              <div>gcloud dataproc clusters create \</div>
+                              <div className="ml-2">hadoop-cluster \</div>
+                              <div className="ml-2">--num-workers 4 \</div>
+                              <div className="ml-2">--machine-type n1-standard-4 \</div>
+                              <div className="ml-2">--initialization-actions gs://bucket/init.sh</div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">💰 Pricing</div>
+                            <div className="text-gray-600">
+                              <div>• $0.01/vCPU/hora (Dataproc fee)</div>
+                              <div>• + Compute Engine pricing</div>
+                              <div>• Preemptible instances (-80%)</div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="font-medium text-blue-700 mb-1">✅ Vantagens</div>
+                            <div className="text-gray-600">
+                              <div>• Start em 90 segundos</div>
+                              <div>• BigQuery integration</div>
+                              <div>• Auto-scaling inteligente</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Best Practices Cloud */}
+                    <div className="mt-6 grid md:grid-cols-2 gap-6">
+                      <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
+                        <h4 className="font-semibold text-green-800 mb-3">✅ Melhores Práticas Cloud</h4>
+                        <div className="space-y-2 text-sm text-gray-700">
+                          <div>• Use object storage (S3/Azure Blob/GCS) como data lake</div>
+                          <div>• Configure auto-scaling para workloads variáveis</div>
+                          <div>• Implemente data lifecycle management</div>
+                          <div>• Use spot/preemptible instances para economia</div>
+                          <div>• Configure monitoring e alertas proativos</div>
+                          <div>• Automatize deployment com IaC (Terraform/ARM)</div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-lg border border-orange-200">
+                        <h4 className="font-semibold text-orange-800 mb-3">⚠️ Considerações de Custo</h4>
+                        <div className="space-y-2 text-sm text-gray-700">
+                          <div>• Shutdown clusters quando não utilizados</div>
+                          <div>• Use compression para reduzir storage costs</div>
+                          <div>• Monitor data transfer charges</div>
+                          <div>• Configure budget alerts</div>
+                          <div>• Avalie workload patterns para right-sizing</div>
+                          <div>• Consider hybrid/multi-cloud strategies</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Migration Strategy */}
+                    <div className="mt-6 bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-200">
+                      <h4 className="font-semibold text-purple-800 mb-3">🔄 Estratégia de Migração On-Premise → Cloud</h4>
+                      
+                      <div className="grid md:grid-cols-4 gap-4 text-sm">
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span className="font-bold">1</span>
+                          </div>
+                          <div className="font-medium text-purple-700">Assessment</div>
+                          <div className="text-gray-600 text-xs">Audit workloads, data, dependencies</div>
+                        </div>
+                        
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span className="font-bold">2</span>
+                          </div>
+                          <div className="font-medium text-purple-700">Pilot</div>
+                          <div className="text-gray-600 text-xs">Test com workload não-crítico</div>
+                        </div>
+                        
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span className="font-bold">3</span>
+                          </div>
+                          <div className="font-medium text-purple-700">Migration</div>
+                          <div className="text-gray-600 text-xs">Migrate por fases, validate</div>
+                        </div>
+                        
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span className="font-bold">4</span>
+                          </div>
+                          <div className="font-medium text-purple-700">Optimize</div>
+                          <div className="text-gray-600 text-xs">Fine-tune performance, costs</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
