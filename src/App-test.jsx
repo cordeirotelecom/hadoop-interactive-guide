@@ -1447,6 +1447,1141 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Seção de Certificações Profissionais */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BookOpen className="h-6 w-6 text-purple-600" />
+                  Certificações Profissionais & Roadmap de Carreira
+                </CardTitle>
+                <CardDescription>
+                  Guia completo para certificações Hadoop/Big Data e planejamento de carreira
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Principais Certificações */}
+                <div className="grid md:grid-cols-3 gap-6">
+                  {/* Cloudera */}
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">CDF</span>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-blue-800">Cloudera</h3>
+                        <p className="text-sm text-blue-600">Industry Leader</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-medium text-blue-700 mb-2">🎯 Certificações Disponíveis</h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex items-center justify-between">
+                            <span>CCA Data Analyst</span>
+                            <Badge variant="outline" className="text-xs">Entry</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>CCP Data Engineer</span>
+                            <Badge variant="outline" className="text-xs">Mid</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>CCA Spark Developer</span>
+                            <Badge variant="outline" className="text-xs">Advanced</Badge>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-blue-700 mb-2">💰 Investimento</h4>
+                        <div className="text-sm text-gray-600">
+                          <div>• $295 - $495 por exam</div>
+                          <div>• Validade: 2 anos</div>
+                          <div>• Formato: Hands-on</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-blue-700 mb-2">📈 ROI de Carreira</h4>
+                        <div className="text-sm text-gray-600">
+                          <div>• +25% salary increase</div>
+                          <div>• 15,000+ job openings</div>
+                          <div>• Top enterprise recognition</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* AWS */}
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg border border-orange-200">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">AWS</span>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-orange-800">Amazon Web Services</h3>
+                        <p className="text-sm text-orange-600">Cloud Leader</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-medium text-orange-700 mb-2">🎯 Certificações Disponíveis</h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex items-center justify-between">
+                            <span>AWS Big Data Specialty</span>
+                            <Badge variant="outline" className="text-xs">Specialty</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>Data Analytics Specialty</span>
+                            <Badge variant="outline" className="text-xs">Advanced</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>Solutions Architect</span>
+                            <Badge variant="outline" className="text-xs">Core</Badge>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-orange-700 mb-2">💰 Investimento</h4>
+                        <div className="text-sm text-gray-600">
+                          <div>• $150 - $300 por exam</div>
+                          <div>• Validade: 3 anos</div>
+                          <div>• Formato: Multiple choice</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-orange-700 mb-2">📈 ROI de Carreira</h4>
+                        <div className="text-sm text-gray-600">
+                          <div>• +30% salary increase</div>
+                          <div>• 50,000+ cloud jobs</div>
+                          <div>• Fastest growing demand</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Microsoft Azure */}
+                  <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg border border-cyan-200">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">AZ</span>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-cyan-800">Microsoft Azure</h3>
+                        <p className="text-sm text-cyan-600">Enterprise Focus</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-medium text-cyan-700 mb-2">🎯 Certificações Disponíveis</h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex items-center justify-between">
+                            <span>DP-203 Data Engineer</span>
+                            <Badge variant="outline" className="text-xs">Associate</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>DP-100 Data Scientist</span>
+                            <Badge variant="outline" className="text-xs">Associate</Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>AZ-104 Administrator</span>
+                            <Badge variant="outline" className="text-xs">Core</Badge>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-cyan-700 mb-2">💰 Investimento</h4>
+                        <div className="text-sm text-gray-600">
+                          <div>• $165 por exam</div>
+                          <div>• Validade: 2 anos</div>
+                          <div>• Formato: Multiple choice</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-medium text-cyan-700 mb-2">📈 ROI de Carreira</h4>
+                        <div className="text-sm text-gray-600">
+                          <div>• +28% salary increase</div>
+                          <div>• 35,000+ enterprise jobs</div>
+                          <div>• Strong Fortune 500 demand</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Roadmap de Carreira */}
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                    🗺️ Roadmap de Carreira - Big Data Engineer
+                    <Badge variant="secondary">2024-2025</Badge>
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-4 gap-6">
+                    {/* Iniciante */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="font-bold">1</span>
+                      </div>
+                      <h4 className="font-semibold text-green-700 mb-3">Iniciante (0-1 ano)</h4>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <div>• Hadoop Fundamentals</div>
+                        <div>• Linux/Shell Scripting</div>
+                        <div>• SQL Avançado</div>
+                        <div>• Python/Java Básico</div>
+                        <div>• Git/Version Control</div>
+                      </div>
+                      <div className="mt-4 p-2 bg-green-100 rounded text-xs">
+                        <strong>Salário:</strong> $50k-70k
+                      </div>
+                    </div>
+                    
+                    {/* Júnior */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="font-bold">2</span>
+                      </div>
+                      <h4 className="font-semibold text-blue-700 mb-3">Júnior (1-2 anos)</h4>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <div>• HDFS Operations</div>
+                        <div>• MapReduce/Spark</div>
+                        <div>• Hive/Pig Scripting</div>
+                        <div>• AWS/Azure Basics</div>
+                        <div>• Data Pipeline Design</div>
+                      </div>
+                      <div className="mt-4 p-2 bg-blue-100 rounded text-xs">
+                        <strong>Salário:</strong> $70k-90k
+                      </div>
+                    </div>
+                    
+                    {/* Pleno */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="font-bold">3</span>
+                      </div>
+                      <h4 className="font-semibold text-purple-700 mb-3">Pleno (2-4 anos)</h4>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <div>• Cluster Administration</div>
+                        <div>• Performance Tuning</div>
+                        <div>• Real-time Processing</div>
+                        <div>• DevOps/CI-CD</div>
+                        <div>• Security Implementation</div>
+                      </div>
+                      <div className="mt-4 p-2 bg-purple-100 rounded text-xs">
+                        <strong>Salário:</strong> $90k-120k
+                      </div>
+                    </div>
+                    
+                    {/* Sênior */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="font-bold">4</span>
+                      </div>
+                      <h4 className="font-semibold text-red-700 mb-3">Sênior (4+ anos)</h4>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <div>• Architecture Design</div>
+                        <div>• Multi-cloud Strategy</div>
+                        <div>• Team Leadership</div>
+                        <div>• Business Intelligence</div>
+                        <div>• Strategic Planning</div>
+                      </div>
+                      <div className="mt-4 p-2 bg-red-100 rounded text-xs">
+                        <strong>Salário:</strong> $120k-180k+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Plano de Estudos Estruturado */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-r from-emerald-50 to-green-50 p-5 rounded-lg border border-emerald-200">
+                    <h4 className="font-semibold text-emerald-800 mb-4">📚 Plano de Estudos - 6 Meses</h4>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-medium text-emerald-700">Mês 1-2: Fundamentos</span>
+                          <Badge variant="outline" className="text-xs">Básico</Badge>
+                        </div>
+                        <div className="text-sm text-gray-600 space-y-1">
+                          <div>• Hadoop Ecosystem Overview</div>
+                          <div>• HDFS Architecture & Commands</div>
+                          <div>• MapReduce Programming</div>
+                          <div>• YARN Resource Management</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-medium text-emerald-700">Mês 3-4: Ferramentas</span>
+                          <Badge variant="outline" className="text-xs">Intermediário</Badge>
+                        </div>
+                        <div className="text-sm text-gray-600 space-y-1">
+                          <div>• Hive Data Warehousing</div>
+                          <div>• Pig Data Processing</div>
+                          <div>• HBase NoSQL Database</div>
+                          <div>• Spark In-Memory Computing</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-medium text-emerald-700">Mês 5-6: Produção</span>
+                          <Badge variant="outline" className="text-xs">Avançado</Badge>
+                        </div>
+                        <div className="text-sm text-gray-600 space-y-1">
+                          <div>• Cluster Administration</div>
+                          <div>• Performance Optimization</div>
+                          <div>• Security & Governance</div>
+                          <div>• Cloud Migration Strategies</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-5 rounded-lg border border-amber-200">
+                    <h4 className="font-semibold text-amber-800 mb-4">🎯 Preparação para Certificação</h4>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <div className="font-medium text-amber-700 mb-2">📖 Recursos de Estudo</div>
+                        <div className="text-sm text-gray-600 space-y-1">
+                          <div>• Official documentation</div>
+                          <div>• Hands-on lab practice</div>
+                          <div>• Mock exams & simulators</div>
+                          <div>• Community forums</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="font-medium text-amber-700 mb-2">⏱️ Cronograma Sugerido</div>
+                        <div className="text-sm text-gray-600 space-y-1">
+                          <div>• 3-6 meses preparação</div>
+                          <div>• 2-3h estudo diário</div>
+                          <div>• 1 lab prático por semana</div>
+                          <div>• Mock exam mensal</div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="font-medium text-amber-700 mb-2">💡 Dicas de Sucesso</div>
+                        <div className="text-sm text-gray-600 space-y-1">
+                          <div>• Practice hands-on scenarios</div>
+                          <div>• Join study groups</div>
+                          <div>• Build portfolio projects</div>
+                          <div>• Network with professionals</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Call to Action */}
+                <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 rounded-lg text-white text-center">
+                  <h4 className="text-xl font-bold mb-2">🚀 Acelere sua Carreira em Big Data!</h4>
+                  <p className="mb-4 opacity-90">
+                    Profissionais certificados em Hadoop ganham em média 25-30% mais que não-certificados
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      📊 Avaliar Nível Atual
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      🎯 Escolher Certificação
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      📚 Começar Estudos
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Estudos de Caso Reais */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Activity className="h-6 w-6 text-blue-600" />
+                  Casos de Uso Reais - Big Data em Produção
+                </CardTitle>
+                <CardDescription>
+                  Arquiteturas e implementações de grandes empresas usando Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Netflix */}
+                <div className="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border border-red-200">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">N</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-red-800">Netflix</h3>
+                      <p className="text-red-600">Streaming & Recommendations</p>
+                      <Badge variant="secondary" className="mt-1">200+ Million Users</Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-red-700 mb-3">🎯 Desafio de Negócio</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• 15 petabytes de dados processados diariamente</div>
+                        <div>• Recomendações personalizadas em tempo real</div>
+                        <div>• Análise de comportamento de viewing</div>
+                        <div>• Otimização de qualidade de streaming</div>
+                        <div>• A/B testing de interface e conteúdo</div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-red-700 mb-3">🏗️ Arquitetura Hadoop</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• <strong>Ingestão:</strong> Kafka + Flume</div>
+                        <div>• <strong>Storage:</strong> HDFS + S3</div>
+                        <div>• <strong>Processing:</strong> Spark + Flink</div>
+                        <div>• <strong>Analytics:</strong> Hive + Presto</div>
+                        <div>• <strong>ML:</strong> Spark MLlib + TensorFlow</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 bg-white p-4 rounded-lg border border-red-100">
+                    <h4 className="font-semibold text-red-700 mb-2">📊 Resultados Mensuráveis</h4>
+                    <div className="grid md:grid-cols-3 gap-4 text-sm">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-red-600">80%</div>
+                        <div className="text-gray-600">Content Discovery via ML</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-red-600">$1B</div>
+                        <div className="text-gray-600">Annual Savings from Optimization</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-red-600">99.9%</div>
+                        <div className="text-gray-600">Service Availability</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Uber */}
+                <div className="bg-gradient-to-r from-gray-50 to-slate-50 p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">U</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800">Uber</h3>
+                      <p className="text-gray-600">Real-time Transportation & Logistics</p>
+                      <Badge variant="secondary" className="mt-1">100+ Million Users</Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-700 mb-3">🎯 Desafio de Negócio</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• Matching drivers/riders em tempo real</div>
+                        <div>• Previsão de demanda geográfica</div>
+                        <div>• Otimização de rotas dinâmicas</div>
+                        <div>• Pricing surge em tempo real</div>
+                        <div>• Fraud detection em transações</div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-gray-700 mb-3">🏗️ Arquitetura Hadoop</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• <strong>Streaming:</strong> Kafka + Storm</div>
+                        <div>• <strong>Storage:</strong> Cassandra + HDFS</div>
+                        <div>• <strong>Processing:</strong> Spark Streaming</div>
+                        <div>• <strong>Analytics:</strong> Hive + Presto</div>
+                        <div>• <strong>ML:</strong> Michelangelo Platform</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 bg-white p-4 rounded-lg border border-gray-100">
+                    <h4 className="font-semibold text-gray-700 mb-2">📊 Resultados Mensuráveis</h4>
+                    <div className="grid md:grid-cols-3 gap-4 text-sm">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-gray-600">15TB</div>
+                        <div className="text-gray-600">Data Processed Daily</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-gray-600">99%</div>
+                        <div className="text-gray-600">Real-time Match Success</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-gray-600">30%</div>
+                        <div className="text-gray-600">ETA Accuracy Improvement</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* LinkedIn */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-blue-700 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">in</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-800">LinkedIn</h3>
+                      <p className="text-blue-600">Professional Network & Recruiting</p>
+                      <Badge variant="secondary" className="mt-1">800+ Million Users</Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-blue-700 mb-3">🎯 Desafio de Negócio</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• Feed personalizado para 800M+ usuários</div>
+                        <div>• Job recommendations engine</div>
+                        <div>• Professional skill recommendations</div>
+                        <div>• Anti-spam e fraud detection</div>
+                        <div>• Economic insights & analytics</div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-blue-700 mb-3">🏗️ Arquitetura Hadoop</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• <strong>Streaming:</strong> Kafka (criado pela LinkedIn)</div>
+                        <div>• <strong>Storage:</strong> Espresso + HDFS</div>
+                        <div>• <strong>Processing:</strong> Samza + Spark</div>
+                        <div>• <strong>Search:</strong> Elasticsearch + Galene</div>
+                        <div>• <strong>ML:</strong> Pro-ML Platform</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 bg-white p-4 rounded-lg border border-blue-100">
+                    <h4 className="font-semibold text-blue-700 mb-2">📊 Resultados Mensuráveis</h4>
+                    <div className="grid md:grid-cols-3 gap-4 text-sm">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">1.4B</div>
+                        <div className="text-gray-600">Feed Updates Daily</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">40M</div>
+                        <div className="text-gray-600">Job Applications Monthly</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">95%</div>
+                        <div className="text-gray-600">Recommendation Relevance</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Airbnb */}
+                <div className="bg-gradient-to-r from-rose-50 to-pink-50 p-6 rounded-lg border border-rose-200">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-rose-500 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">A</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-rose-800">Airbnb</h3>
+                      <p className="text-rose-600">Travel & Hospitality Platform</p>
+                      <Badge variant="secondary" className="mt-1">4+ Million Hosts</Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-rose-700 mb-3">🎯 Desafio de Negócio</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• Dynamic pricing para 7M+ listings</div>
+                        <div>• Search ranking personalizado</div>
+                        <div>• Trust & safety automation</div>
+                        <div>• Demand forecasting por região</div>
+                        <div>• Host performance optimization</div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-rose-700 mb-3">🏗️ Arquitetura Hadoop</h4>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <div>• <strong>Streaming:</strong> Kafka + Spark Streaming</div>
+                        <div>• <strong>Storage:</strong> HDFS + Hive</div>
+                        <div>• <strong>Processing:</strong> Airflow + Spark</div>
+                        <div>• <strong>Analytics:</strong> Superset + Druid</div>
+                        <div>• <strong>ML:</strong> Bighead Platform</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 bg-white p-4 rounded-lg border border-rose-100">
+                    <h4 className="font-semibold text-rose-700 mb-2">📊 Resultados Mensuráveis</h4>
+                    <div className="grid md:grid-cols-3 gap-4 text-sm">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-rose-600">500M</div>
+                        <div className="text-gray-600">Guest Arrivals Annually</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-rose-600">25%</div>
+                        <div className="text-gray-600">Revenue Increase from ML</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-rose-600">99.5%</div>
+                        <div className="text-gray-600">Fraud Detection Accuracy</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Arquiteturas Comparativas */}
+                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                    🏗️ Padrões de Arquitetura Enterprise
+                    <Badge variant="secondary">Comparative Analysis</Badge>
+                  </h3>
+                  
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-purple-200">
+                          <th className="text-left p-3 font-semibold text-purple-700">Empresa</th>
+                          <th className="text-left p-3 font-semibold text-purple-700">Volume/Dia</th>
+                          <th className="text-left p-3 font-semibold text-purple-700">Stack Principal</th>
+                          <th className="text-left p-3 font-semibold text-purple-700">Use Case Primary</th>
+                          <th className="text-left p-3 font-semibold text-purple-700">ROI Key</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-gray-700">
+                        <tr className="border-b border-purple-100">
+                          <td className="p-3 font-medium">Netflix</td>
+                          <td className="p-3">15 PB</td>
+                          <td className="p-3">Spark + Kafka + S3</td>
+                          <td className="p-3">ML Recommendations</td>
+                          <td className="p-3">80% discovery rate</td>
+                        </tr>
+                        <tr className="border-b border-purple-100">
+                          <td className="p-3 font-medium">Uber</td>
+                          <td className="p-3">15 TB</td>
+                          <td className="p-3">Kafka + Storm + Cassandra</td>
+                          <td className="p-3">Real-time Matching</td>
+                          <td className="p-3">99% match success</td>
+                        </tr>
+                        <tr className="border-b border-purple-100">
+                          <td className="p-3 font-medium">LinkedIn</td>
+                          <td className="p-3">1.4B events</td>
+                          <td className="p-3">Kafka + Samza + Espresso</td>
+                          <td className="p-3">Feed Personalization</td>
+                          <td className="p-3">95% relevance</td>
+                        </tr>
+                        <tr>
+                          <td className="p-3 font-medium">Airbnb</td>
+                          <td className="p-3">10 TB</td>
+                          <td className="p-3">Spark + Airflow + Hive</td>
+                          <td className="p-3">Dynamic Pricing</td>
+                          <td className="p-3">25% revenue increase</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                {/* Lições Aprendidas */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-lg border border-green-200">
+                    <h4 className="font-semibold text-green-800 mb-4">✅ Padrões de Sucesso</h4>
+                    
+                    <div className="space-y-3 text-sm text-gray-700">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Start Small, Scale Fast</div>
+                          <div className="text-gray-600">Begin with MVP, prove value, then scale horizontally</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Real-time + Batch Hybrid</div>
+                          <div className="text-gray-600">Lambda architecture para diferentes SLAs</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">ML-First Approach</div>
+                          <div className="text-gray-600">Embed intelligence desde o design inicial</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Self-Service Analytics</div>
+                          <div className="text-gray-600">Democratize data access across teams</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-lg border border-amber-200">
+                    <h4 className="font-semibold text-amber-800 mb-4">⚠️ Armadilhas Comuns</h4>
+                    
+                    <div className="space-y-3 text-sm text-gray-700">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Over-Engineering</div>
+                          <div className="text-gray-600">Complex architectures sem business case claro</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Data Quality Neglect</div>
+                          <div className="text-gray-600">Focus em volume mas ignorar qualidade dos dados</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Monolithic Mindset</div>
+                          <div className="text-gray-600">Não quebrar em microservices escaláveis</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full mt-2"></div>
+                        <div>
+                          <div className="font-medium">Security Afterthought</div>
+                          <div className="text-gray-600">Não implementar security-by-design</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Call to Action */}
+                <div className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 p-6 rounded-lg text-white text-center">
+                  <h4 className="text-xl font-bold mb-2">🚀 Aplique Esses Padrões no Seu Projeto!</h4>
+                  <p className="mb-4 opacity-90">
+                    Adapte essas arquiteturas comprovadas para acelerar sua implementação
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      📋 Template Arquitetura
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      🔍 Assessment Tool
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      📞 Expert Consultation
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Recursos para Download */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Download className="h-6 w-6 text-green-600" />
+                  Centro de Downloads - Recursos Práticos
+                </CardTitle>
+                <CardDescription>
+                  Templates, datasets, configurações e cheat sheets para acelerar seu desenvolvimento
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Templates de Configuração */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-4 flex items-center gap-2">
+                      ⚙️ Templates de Configuração
+                      <Badge variant="secondary">Production Ready</Badge>
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      <div className="bg-white p-4 rounded-lg border border-blue-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Code className="h-4 w-4 text-blue-600" />
+                            <span className="font-medium">core-site.xml</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Configuração otimizada para clusters de produção
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">XML</Badge>
+                          <Badge variant="outline">2KB</Badge>
+                          <Badge variant="outline">Production</Badge>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-lg border border-blue-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Code className="h-4 w-4 text-blue-600" />
+                            <span className="font-medium">hdfs-site.xml</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          HDFS tuning para performance e reliability
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">XML</Badge>
+                          <Badge variant="outline">3KB</Badge>
+                          <Badge variant="outline">High Performance</Badge>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-lg border border-blue-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Code className="h-4 w-4 text-blue-600" />
+                            <span className="font-medium">yarn-site.xml</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Resource management otimizado para workloads diversos
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">XML</Badge>
+                          <Badge variant="outline">4KB</Badge>
+                          <Badge variant="outline">Resource Tuning</Badge>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-lg border border-blue-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Code className="h-4 w-4 text-blue-600" />
+                            <span className="font-medium">Docker Compose</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Cluster Hadoop completo em containers
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">YAML</Badge>
+                          <Badge variant="outline">8KB</Badge>
+                          <Badge variant="outline">Development</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-lg border border-green-200">
+                    <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center gap-2">
+                      📊 Datasets de Exemplo
+                      <Badge variant="secondary">Hands-on Learning</Badge>
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      <div className="bg-white p-4 rounded-lg border border-green-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Database className="h-4 w-4 text-green-600" />
+                            <span className="font-medium">E-commerce Dataset</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          1M+ transações para análise de vendas e customer behavior
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">CSV</Badge>
+                          <Badge variant="outline">250MB</Badge>
+                          <Badge variant="outline">Retail Analytics</Badge>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-lg border border-green-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Database className="h-4 w-4 text-green-600" />
+                            <span className="font-medium">Web Logs Dataset</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          6 meses de logs web para análise de tráfego e performance
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">LOG</Badge>
+                          <Badge variant="outline">500MB</Badge>
+                          <Badge variant="outline">Web Analytics</Badge>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-lg border border-green-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Database className="h-4 w-4 text-green-600" />
+                            <span className="font-medium">IoT Sensor Data</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Time series de sensores industriais para análise preditiva
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">JSON</Badge>
+                          <Badge variant="outline">1.2GB</Badge>
+                          <Badge variant="outline">IoT Analytics</Badge>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-lg border border-green-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Database className="h-4 w-4 text-green-600" />
+                            <span className="font-medium">Financial Markets</span>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Download
+                          </Button>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Dados históricos de trading para análise quantitativa
+                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          <Badge variant="outline">Parquet</Badge>
+                          <Badge variant="outline">800MB</Badge>
+                          <Badge variant="outline">FinTech</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Scripts e Utilitários */}
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                    🛠️ Scripts & Utilitários
+                    <Badge variant="secondary">DevOps Ready</Badge>
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-white p-4 rounded-lg border border-purple-100">
+                      <h4 className="font-semibold text-purple-700 mb-3">📋 Installation Scripts</h4>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <span>hadoop-install.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>spark-setup.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>hive-config.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>cluster-init.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-purple-100">
+                      <h4 className="font-semibold text-purple-700 mb-3">🔧 Monitoring Tools</h4>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <span>health-check.py</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>performance-monitor.py</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>disk-usage-alert.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>log-analyzer.py</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-purple-100">
+                      <h4 className="font-semibold text-purple-700 mb-3">⚡ Performance Utils</h4>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-center justify-between">
+                          <span>hdfs-balancer.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>yarn-optimizer.py</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>memory-tuner.sh</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span>benchmark-suite.py</span>
+                          <Button size="sm" variant="outline" className="text-xs">Get</Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Cheat Sheets */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-r from-indigo-50 to-blue-50 p-5 rounded-lg border border-indigo-200">
+                    <h4 className="font-semibold text-indigo-800 mb-4 flex items-center gap-2">
+                      📝 Cheat Sheets
+                      <Badge variant="secondary">Quick Reference</Badge>
+                    </h4>
+                    
+                    <div className="space-y-3">
+                      <div className="bg-white p-3 rounded border border-indigo-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">HDFS Commands</span>
+                          <Button size="sm" variant="outline" className="text-xs">PDF</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">50+ comandos essenciais com exemplos</p>
+                      </div>
+                      
+                      <div className="bg-white p-3 rounded border border-indigo-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">MapReduce Patterns</span>
+                          <Button size="sm" variant="outline" className="text-xs">PDF</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">Design patterns mais utilizados</p>
+                      </div>
+                      
+                      <div className="bg-white p-3 rounded border border-indigo-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">Hive SQL Guide</span>
+                          <Button size="sm" variant="outline" className="text-xs">PDF</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">HiveQL syntax e otimizações</p>
+                      </div>
+                      
+                      <div className="bg-white p-3 rounded border border-indigo-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">Spark Configuration</span>
+                          <Button size="sm" variant="outline" className="text-xs">PDF</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">Tuning parameters essenciais</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 p-5 rounded-lg border border-orange-200">
+                    <h4 className="font-semibold text-orange-800 mb-4 flex items-center gap-2">
+                      🏗️ Architecture Templates
+                      <Badge variant="secondary">Enterprise</Badge>
+                    </h4>
+                    
+                    <div className="space-y-3">
+                      <div className="bg-white p-3 rounded border border-orange-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">Lambda Architecture</span>
+                          <Button size="sm" variant="outline" className="text-xs">ZIP</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">Batch + Streaming template completo</p>
+                      </div>
+                      
+                      <div className="bg-white p-3 rounded border border-orange-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">Data Lake Pattern</span>
+                          <Button size="sm" variant="outline" className="text-xs">ZIP</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">Bronze/Silver/Gold layers</p>
+                      </div>
+                      
+                      <div className="bg-white p-3 rounded border border-orange-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">ML Pipeline</span>
+                          <Button size="sm" variant="outline" className="text-xs">ZIP</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">End-to-end ML workflow</p>
+                      </div>
+                      
+                      <div className="bg-white p-3 rounded border border-orange-100">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-medium text-sm">Security Framework</span>
+                          <Button size="sm" variant="outline" className="text-xs">ZIP</Button>
+                        </div>
+                        <p className="text-xs text-gray-600">Kerberos + Ranger setup</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Download Package */}
+                <div className="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 p-6 rounded-lg text-white text-center">
+                  <h4 className="text-xl font-bold mb-2">📦 Hadoop Starter Kit Completo</h4>
+                  <p className="mb-4 opacity-90">
+                    Todos os recursos em um único download: configs, datasets, scripts e cheat sheets
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4 mb-4">
+                    <div className="bg-white/20 backdrop-blur rounded-lg p-3 text-sm">
+                      <div className="font-bold text-lg">15+</div>
+                      <div>Configuration Files</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur rounded-lg p-3 text-sm">
+                      <div className="font-bold text-lg">4</div>
+                      <div>Sample Datasets</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur rounded-lg p-3 text-sm">
+                      <div className="font-bold text-lg">25+</div>
+                      <div>Utility Scripts</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur rounded-lg p-3 text-sm">
+                      <div className="font-bold text-lg">8</div>
+                      <div>Cheat Sheets</div>
+                    </div>
+                  </div>
+                  <Button variant="secondary" size="lg" className="bg-white text-green-600 hover:bg-gray-100 font-semibold">
+                    <Download className="h-4 w-4 mr-2" />
+                    Download Hadoop Starter Kit (2.5GB)
+                  </Button>
+                  <p className="text-xs mt-2 opacity-80">
+                    Free para uso educacional e comercial • Updated monthly
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Sistema de Favoritos Avançado */}
             <Card>
               <CardHeader>
