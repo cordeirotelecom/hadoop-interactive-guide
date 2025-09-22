@@ -17,7 +17,11 @@ import {
   Code,
   CheckCircle,
   AlertTriangle,
-  DollarSign
+  DollarSign,
+  Terminal,
+  Activity,
+  Network,
+  Users
 } from 'lucide-react'
 
 function App() {
@@ -49,12 +53,42 @@ function App() {
 
       <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 transition-all duration-300 ease-in-out">
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 h-auto overflow-x-auto p-1 bg-gray-100 dark:bg-gray-800 rounded-xl">
-            <TabsTrigger value="overview" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg">
-              <BookOpen className="h-5 w-5 flex-shrink-0" />
-              <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Visão Geral</span>
-            </TabsTrigger>
-          </TabsList>
+          <div className="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-1 h-auto overflow-x-auto p-1 bg-gray-100 dark:bg-gray-800 rounded-xl">
+              <TabsTrigger value="overview" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <BookOpen className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Visão Geral</span>
+              </TabsTrigger>
+              <TabsTrigger value="fundamentals" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Code className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Fundamentos</span>
+              </TabsTrigger>
+              <TabsTrigger value="architecture" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Database className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Arquitetura</span>
+              </TabsTrigger>
+              <TabsTrigger value="installation" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Download className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Instalação</span>
+              </TabsTrigger>
+              <TabsTrigger value="examples" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Code className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Exemplos</span>
+              </TabsTrigger>
+              <TabsTrigger value="labs" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Terminal className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Labs</span>
+              </TabsTrigger>
+              <TabsTrigger value="monitoring" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Activity className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Monitor</span>
+              </TabsTrigger>
+              <TabsTrigger value="ecosystem" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Network className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Ecossistema</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
           <TabsContent value="overview" className="space-y-8">
             {/* Hero Section */}
@@ -159,6 +193,615 @@ function App() {
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
+
+          {/* Fundamentals Tab */}
+          <TabsContent value="fundamentals" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Code className="h-6 w-6 text-blue-600" />
+                  Fundamentos do Apache Hadoop
+                </CardTitle>
+                <CardDescription>
+                  Conceitos essenciais para entender o ecossistema Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">🏗️ Componentes Principais</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                        <div>
+                          <h4 className="font-medium">HDFS (Hadoop Distributed File System)</h4>
+                          <p className="text-sm text-gray-600">Sistema de arquivos distribuído para armazenar grandes volumes de dados</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div>
+                          <h4 className="font-medium">MapReduce</h4>
+                          <p className="text-sm text-gray-600">Framework para processamento paralelo de dados distribuídos</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                        <div>
+                          <h4 className="font-medium">YARN</h4>
+                          <p className="text-sm text-gray-600">Gerenciador de recursos e scheduler de jobs</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">⚡ Casos de Uso</h3>
+                    <div className="space-y-2">
+                      <div className="p-3 bg-blue-50 rounded-lg">
+                        <p className="text-sm font-medium">Análise de logs de aplicações</p>
+                      </div>
+                      <div className="p-3 bg-green-50 rounded-lg">
+                        <p className="text-sm font-medium">Data warehousing e ETL</p>
+                      </div>
+                      <div className="p-3 bg-purple-50 rounded-lg">
+                        <p className="text-sm font-medium">Machine Learning em grandes datasets</p>
+                      </div>
+                      <div className="p-3 bg-orange-50 rounded-lg">
+                        <p className="text-sm font-medium">Processamento de dados de IoT</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Architecture Tab */}
+          <TabsContent value="architecture" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Database className="h-6 w-6 text-green-600" />
+                  Arquitetura do Hadoop
+                </CardTitle>
+                <CardDescription>
+                  Estrutura e componentes do ecossistema Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">🏛️ Arquitetura Master-Slave</h3>
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-medium text-blue-700">NameNode (Master)</h4>
+                        <p className="text-sm text-gray-600">Gerencia metadados do HDFS e coordena o acesso aos dados</p>
+                      </div>
+                      <div className="border-l-4 border-green-500 pl-4">
+                        <h4 className="font-medium text-green-700">DataNodes (Slaves)</h4>
+                        <p className="text-sm text-gray-600">Armazenam os blocos de dados reais nos discos locais</p>
+                      </div>
+                      <div className="border-l-4 border-purple-500 pl-4">
+                        <h4 className="font-medium text-purple-700">Secondary NameNode</h4>
+                        <p className="text-sm text-gray-600">Realiza checkpoints periódicos do NameNode</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">📊 Fluxo de Dados</h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</div>
+                          <span className="text-sm">Cliente solicita arquivo ao NameNode</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</div>
+                          <span className="text-sm">NameNode retorna localização dos blocos</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</div>
+                          <span className="text-sm">Cliente acessa DataNodes diretamente</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</div>
+                          <span className="text-sm">Dados são lidos/escritos em paralelo</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Installation Tab */}
+          <TabsContent value="installation" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Download className="h-6 w-6 text-orange-600" />
+                  Instalação do Hadoop
+                </CardTitle>
+                <CardDescription>
+                  Guia passo a passo para instalar o Apache Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">📋 Pré-requisitos</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-blue-50 rounded-lg">
+                        <h4 className="font-medium text-blue-700 mb-2">Sistema Operacional</h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Linux (Ubuntu 18.04+ recomendado)</li>
+                          <li>• Windows 10+ (com WSL2)</li>
+                          <li>• macOS 10.14+</li>
+                        </ul>
+                      </div>
+                      <div className="p-4 bg-green-50 rounded-lg">
+                        <h4 className="font-medium text-green-700 mb-2">Software</h4>
+                        <ul className="text-sm space-y-1">
+                          <li>• Java 8+ (OpenJDK recomendado)</li>
+                          <li>• SSH configurado</li>
+                          <li>• Python 3.7+ (opcional)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">⚙️ Comandos de Instalação</h3>
+                    <div className="space-y-3">
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Instalar Java</div>
+                        <div>sudo apt update && sudo apt install openjdk-8-jdk</div>
+                      </div>
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Download Hadoop</div>
+                        <div>wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz</div>
+                      </div>
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Extrair e configurar</div>
+                        <div>tar -xzf hadoop-3.3.6.tar.gz</div>
+                        <div>sudo mv hadoop-3.3.6 /opt/hadoop</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Examples Tab */}
+          <TabsContent value="examples" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Code className="h-6 w-6 text-purple-600" />
+                  Exemplos Práticos
+                </CardTitle>
+                <CardDescription>
+                  Código e exemplos para começar com Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">🚀 WordCount - O "Hello World" do Hadoop</h3>
+                    <div className="p-4 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                      <div className="mb-2"># Criar diretório de input</div>
+                      <div>hdfs dfs -mkdir /input</div>
+                      <div className="mt-2 mb-2"># Copiar arquivo para HDFS</div>
+                      <div>hdfs dfs -put input.txt /input</div>
+                      <div className="mt-2 mb-2"># Executar WordCount</div>
+                      <div>hadoop jar hadoop-examples.jar wordcount /input /output</div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">📊 Comandos HDFS Essenciais</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <div className="p-3 bg-blue-50 rounded-lg">
+                          <code className="text-sm font-mono">hdfs dfs -ls /</code>
+                          <p className="text-xs text-gray-600 mt-1">Listar arquivos</p>
+                        </div>
+                        <div className="p-3 bg-green-50 rounded-lg">
+                          <code className="text-sm font-mono">hdfs dfs -mkdir /data</code>
+                          <p className="text-xs text-gray-600 mt-1">Criar diretório</p>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="p-3 bg-purple-50 rounded-lg">
+                          <code className="text-sm font-mono">hdfs dfs -put file.txt /data</code>
+                          <p className="text-xs text-gray-600 mt-1">Upload arquivo</p>
+                        </div>
+                        <div className="p-3 bg-orange-50 rounded-lg">
+                          <code className="text-sm font-mono">hdfs dfs -get /data/file.txt</code>
+                          <p className="text-xs text-gray-600 mt-1">Download arquivo</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Labs Tab */}
+          <TabsContent value="labs" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Terminal className="h-6 w-6 text-green-600" />
+                  Terminal Hadoop Interativo
+                </CardTitle>
+                <CardDescription>
+                  Simule comandos Hadoop em um ambiente seguro de aprendizado
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="text-sm font-medium mb-2">🚀 Comandos Disponíveis:</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline" className="text-xs font-mono">hdfs dfs -ls /</Badge>
+                    <Badge variant="outline" className="text-xs font-mono">yarn application -list</Badge>
+                    <Badge variant="outline" className="text-xs font-mono">hdfs dfsadmin -report</Badge>
+                    <Badge variant="outline" className="text-xs font-mono">start-dfs.sh</Badge>
+                  </div>
+                </div>
+
+                <div className="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden">
+                  <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-1">
+                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300 text-sm font-medium">hadoop@cluster:~</span>
+                    </div>
+                    <Badge variant="secondary" className="text-xs">Online</Badge>
+                  </div>
+
+                  <div className="p-4 h-80 overflow-y-auto font-mono text-sm bg-gray-900">
+                    <div className="text-blue-300 mb-2">$ Hadoop Terminal Simulator - Digite "help" para comandos disponíveis</div>
+                    <div className="text-green-300 mb-2">$ Sistema iniciado com sucesso!</div>
+                    <div className="text-green-400 font-bold mb-1">$ hdfs dfs -ls /</div>
+                    <div className="text-gray-300 mb-1">Found 4 items</div>
+                    <div className="text-gray-300 mb-1">drwxr-xr-x   - hadoop supergroup   0 2024-01-15 10:30 /data</div>
+                    <div className="text-gray-300 mb-1">drwxr-xr-x   - hadoop supergroup   0 2024-01-15 09:15 /input</div>
+                    <div className="text-gray-300 mb-1">drwxr-xr-x   - hadoop supergroup   0 2024-01-15 11:45 /output</div>
+                    <div className="text-gray-300 mb-3">drwxr-xr-x   - hadoop supergroup   0 2024-01-15 08:00 /user</div>
+                    
+                    <div className="text-green-400 font-bold mb-1">$ yarn application -list</div>
+                    <div className="text-gray-300 mb-1">Total applications: 2</div>
+                    <div className="text-gray-300 mb-1">Application-Id          Name        State</div>
+                    <div className="text-gray-300 mb-1">app_1642234567890_0001  WordCount   RUNNING</div>
+                    <div className="text-gray-300 mb-3">app_1642234567890_0002  TeraSort    ACCEPTED</div>
+                    
+                    <div className="text-green-400 font-bold mb-1">$ hdfs dfsadmin -report</div>
+                    <div className="text-gray-300 mb-1">Configured Capacity: 1 TB</div>
+                    <div className="text-gray-300 mb-1">Present Capacity: 900 GB</div>
+                    <div className="text-gray-300 mb-1">DFS Remaining: 500 GB</div>
+                    <div className="text-gray-300 mb-1">DFS Used: 400 GB (44.44%)</div>
+                    <div className="text-gray-300 mb-3">Live datanodes: 3</div>
+                    
+                    <div className="text-green-400 animate-pulse">$ _</div>
+                  </div>
+
+                  <div className="bg-gray-800 px-4 py-3 border-t border-gray-700">
+                    <div className="flex items-center gap-2">
+                      <span className="text-green-400 font-mono">$</span>
+                      <div className="flex-1 bg-transparent border border-gray-600 rounded px-3 py-2 text-gray-300 font-mono text-sm">
+                        Digite um comando Hadoop...
+                      </div>
+                      <Button size="sm" disabled className="px-3 opacity-50">
+                        <Terminal className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-xs text-gray-500 space-y-1">
+                  <p>💡 <strong>Demo:</strong> Terminal interativo será implementado em breve</p>
+                  <p>🎯 <strong>Objetivo:</strong> Pratique comandos Hadoop sem instalar nada!</p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Code className="h-6 w-6 text-blue-600" />
+                  Laboratórios Práticos
+                </CardTitle>
+                <CardDescription>
+                  Experimentos hands-on para dominar o Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">🧪 Lab 1: Configuração Básica</h3>
+                      <div className="space-y-3">
+                        <div className="p-4 bg-blue-50 border-l-4 border-blue-500">
+                          <h4 className="font-medium text-blue-700">Objetivo</h4>
+                          <p className="text-sm mt-1">Configurar um cluster Hadoop single-node</p>
+                        </div>
+                        <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                          <div># Iniciar serviços Hadoop</div>
+                          <div>start-dfs.sh</div>
+                          <div>start-yarn.sh</div>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Duração estimada: 30 minutos</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">🔬 Lab 2: MapReduce Avançado</h3>
+                      <div className="space-y-3">
+                        <div className="p-4 bg-purple-50 border-l-4 border-purple-500">
+                          <h4 className="font-medium text-purple-700">Objetivo</h4>
+                          <p className="text-sm mt-1">Criar job MapReduce personalizado</p>
+                        </div>
+                        <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                          <div># Compilar e executar</div>
+                          <div>javac -cp $(hadoop classpath) *.java</div>
+                          <div>jar cf wc.jar WordCount*.class</div>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span>Duração estimada: 45 minutos</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-3">💡 Dicas para os Labs</h3>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          <BookOpen className="h-6 w-6" />
+                        </div>
+                        <p className="text-sm font-medium">Siga o passo a passo</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          <CheckCircle className="h-6 w-6" />
+                        </div>
+                        <p className="text-sm font-medium">Valide cada etapa</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          <Users className="h-6 w-6" />
+                        </div>
+                        <p className="text-sm font-medium">Compartilhe resultados</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Monitoring Tab */}
+          <TabsContent value="monitoring" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Activity className="h-6 w-6 text-orange-600" />
+                  Monitoramento e Performance
+                </CardTitle>
+                <CardDescription>
+                  Ferramentas para monitorar e otimizar clusters Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="grid lg:grid-cols-3 gap-6">
+                    <div className="lg:col-span-2">
+                      <h3 className="text-lg font-semibold mb-4">📊 Interfaces Web do Hadoop</h3>
+                      <div className="space-y-3">
+                        <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-blue-700">NameNode Web UI</h4>
+                            <Badge variant="secondary">:9870</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Monitoramento do HDFS, blocos, DataNodes</p>
+                        </div>
+                        <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-green-700">ResourceManager Web UI</h4>
+                            <Badge variant="secondary">:8088</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Gerenciamento de aplicações YARN</p>
+                        </div>
+                        <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-purple-700">JobHistory Server</h4>
+                            <Badge variant="secondary">:19888</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Histórico de jobs MapReduce</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">⚡ Métricas Essenciais</h3>
+                      <div className="space-y-3">
+                        <div className="p-3 bg-red-50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <span className="text-sm font-medium">CPU Usage</span>
+                          </div>
+                        </div>
+                        <div className="p-3 bg-orange-50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                            <span className="text-sm font-medium">Memory Usage</span>
+                          </div>
+                        </div>
+                        <div className="p-3 bg-blue-50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                            <span className="text-sm font-medium">Disk I/O</span>
+                          </div>
+                        </div>
+                        <div className="p-3 bg-green-50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span className="text-sm font-medium">Network Traffic</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">🔧 Comandos de Monitoramento</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Status do cluster</div>
+                        <div>hdfs dfsadmin -report</div>
+                      </div>
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Aplicações YARN</div>
+                        <div>yarn application -list</div>
+                      </div>
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Saúde dos DataNodes</div>
+                        <div>hdfs dfsadmin -printTopology</div>
+                      </div>
+                      <div className="p-3 bg-gray-900 text-green-400 rounded-lg font-mono text-sm">
+                        <div className="mb-2"># Logs do sistema</div>
+                        <div>yarn logs -applicationId app_id</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Ecosystem Tab */}
+          <TabsContent value="ecosystem" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Network className="h-6 w-6 text-indigo-600" />
+                  Ecossistema Hadoop
+                </CardTitle>
+                <CardDescription>
+                  Ferramentas e projetos que complementam o Apache Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="grid lg:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">🏗️ Ferramentas de Armazenamento</h3>
+                      <div className="space-y-3">
+                        <div className="p-4 bg-blue-50 border-l-4 border-blue-500">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-blue-700">Apache HBase</h4>
+                            <Badge variant="outline">NoSQL</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Banco de dados colunar distribuído sobre HDFS</p>
+                        </div>
+                        <div className="p-4 bg-green-50 border-l-4 border-green-500">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-green-700">Apache Cassandra</h4>
+                            <Badge variant="outline">Distribuído</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Sistema de banco de dados altamente escalável</p>
+                        </div>
+                        <div className="p-4 bg-purple-50 border-l-4 border-purple-500">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-purple-700">Apache Kudu</h4>
+                            <Badge variant="outline">Híbrido</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Armazenamento para workloads analíticos rápidos</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">⚡ Ferramentas de Processamento</h3>
+                      <div className="space-y-3">
+                        <div className="p-4 bg-orange-50 border-l-4 border-orange-500">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-orange-700">Apache Spark</h4>
+                            <Badge variant="outline">In-Memory</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Engine de analytics unificada para big data</p>
+                        </div>
+                        <div className="p-4 bg-teal-50 border-l-4 border-teal-500">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-teal-700">Apache Flink</h4>
+                            <Badge variant="outline">Streaming</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Processamento de stream em tempo real</p>
+                        </div>
+                        <div className="p-4 bg-indigo-50 border-l-4 border-indigo-500">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-medium text-indigo-700">Apache Storm</h4>
+                            <Badge variant="outline">Real-time</Badge>
+                          </div>
+                          <p className="text-sm text-gray-600">Sistema de computação distribuída em tempo real</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">📊 Ferramentas de Consulta e Análise</h3>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Database className="h-5 w-5 text-blue-600" />
+                          <h4 className="font-medium text-blue-700">Apache Hive</h4>
+                        </div>
+                        <p className="text-sm text-gray-600">Data warehouse com interface SQL</p>
+                      </div>
+                      <div className="p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Zap className="h-5 w-5 text-green-600" />
+                          <h4 className="font-medium text-green-700">Apache Impala</h4>
+                        </div>
+                        <p className="text-sm text-gray-600">Engine SQL massivamente paralelo</p>
+                      </div>
+                      <div className="p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <BarChart3 className="h-5 w-5 text-purple-600" />
+                          <h4 className="font-medium text-purple-700">Apache Drill</h4>
+                        </div>
+                        <p className="text-sm text-gray-600">SQL query engine schema-free</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-3">🚀 Tendências do Ecossistema</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-medium mb-2">☁️ Cloud-Native</h4>
+                        <p className="text-sm text-gray-600">Migração para soluções cloud como AWS EMR, Azure HDInsight, Google Dataproc</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">🤖 Machine Learning</h4>
+                        <p className="text-sm text-gray-600">Integração com MLlib, TensorFlow, e frameworks de ML distribuído</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </main>
