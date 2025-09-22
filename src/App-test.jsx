@@ -21,7 +21,9 @@ import {
   Terminal,
   Activity,
   Network,
-  Users
+  Users,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 
 function App() {
@@ -193,6 +195,143 @@ function App() {
                 </CardContent>
               </Card>
             </div>
+            
+            {/* Progress Tracker */}
+            <Card className="bg-gradient-to-br from-green-50 to-blue-50 border-green-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-6 w-6 text-green-600" />
+                  Seu Progresso de Aprendizado
+                </CardTitle>
+                <CardDescription>
+                  Acompanhe seu progresso através dos módulos do Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {/* Progress Bar */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-gray-700">Progresso Geral</span>
+                      <span className="text-sm font-bold text-green-600">35% Completo</span>
+                    </div>
+                    <Progress value={35} className="h-3" />
+                    <p className="text-xs text-gray-500 mt-1">3 de 8 módulos concluídos</p>
+                  </div>
+
+                  {/* Learning Path */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">📚 Trilha de Aprendizado</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-green-200">
+                        <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                          ✓
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-green-700">Fundamentos do Hadoop</h4>
+                          <p className="text-sm text-gray-600">HDFS, MapReduce, YARN - Concluído</p>
+                        </div>
+                        <Badge variant="default" className="bg-green-500">Completo</Badge>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-green-200">
+                        <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                          ✓
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-green-700">Arquitetura do Sistema</h4>
+                          <p className="text-sm text-gray-600">Master-Slave, DataNodes - Concluído</p>
+                        </div>
+                        <Badge variant="default" className="bg-green-500">Completo</Badge>
+                      </div>
+
+                      <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-blue-200">
+                        <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                          3
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-blue-700">Instalação e Configuração</h4>
+                          <p className="text-sm text-gray-600">Processo de setup - Em andamento</p>
+                        </div>
+                        <Badge variant="secondary">Em Progresso</Badge>
+                      </div>
+
+                      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="w-6 h-6 bg-gray-300 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                          4
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-gray-700">Comandos Práticos</h4>
+                          <p className="text-sm text-gray-600">HDFS CLI, YARN commands - Pendente</p>
+                        </div>
+                        <Badge variant="outline">Pendente</Badge>
+                      </div>
+
+                      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                        <div className="w-6 h-6 bg-gray-300 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                          5
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-gray-700">Labs Avançados</h4>
+                          <p className="text-sm text-gray-600">MapReduce personalizado - Pendente</p>
+                        </div>
+                        <Badge variant="outline">Pendente</Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Achievements */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">🏆 Conquistas Desbloqueadas</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <div className="text-center p-3 bg-white rounded-lg border border-yellow-200">
+                        <div className="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          🏁
+                        </div>
+                        <p className="text-xs font-medium">Primeiro Acesso</p>
+                      </div>
+                      <div className="text-center p-3 bg-white rounded-lg border border-blue-200">
+                        <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          📚
+                        </div>
+                        <p className="text-xs font-medium">Estudioso</p>
+                      </div>
+                      <div className="text-center p-3 bg-white rounded-lg border border-green-200">
+                        <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          🔧
+                        </div>
+                        <p className="text-xs font-medium">Configurador</p>
+                      </div>
+                      <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200 opacity-50">
+                        <div className="w-12 h-12 bg-gray-300 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                          🚀
+                        </div>
+                        <p className="text-xs font-medium">Expert</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Actions */}
+                  <div className="bg-white p-4 rounded-lg border border-blue-200">
+                    <h3 className="font-semibold mb-3">⚡ Próximos Passos</h3>
+                    <div className="space-y-2">
+                      <Button className="w-full justify-start" variant="outline" size="sm">
+                        <Terminal className="h-4 w-4 mr-2" />
+                        Praticar comandos na tab Labs
+                      </Button>
+                      <Button className="w-full justify-start" variant="outline" size="sm">
+                        <Code className="h-4 w-4 mr-2" />
+                        Estudar exemplos de MapReduce
+                      </Button>
+                      <Button className="w-full justify-start" variant="outline" size="sm">
+                        <Activity className="h-4 w-4 mr-2" />
+                        Explorar ferramentas de monitoramento
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* Fundamentals Tab */}
@@ -314,6 +453,114 @@ function App() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Interactive Architecture Diagram */}
+            <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Network className="h-6 w-6 text-indigo-600" />
+                  Diagrama Interativo da Arquitetura
+                </CardTitle>
+                <CardDescription>
+                  Explore a arquitetura do Hadoop de forma visual e interativa
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="bg-white p-8 rounded-lg border border-indigo-200 relative">
+                    <div className="text-center mb-6">
+                      <h3 className="text-lg font-semibold text-indigo-700">Cluster Hadoop Interativo</h3>
+                      <p className="text-sm text-gray-600">Hover nos componentes para ver detalhes</p>
+                    </div>
+
+                    <div className="mb-8">
+                      <div className="text-center mb-4">
+                        <Badge variant="outline" className="text-blue-600 border-blue-600">Master Nodes</Badge>
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="group relative">
+                          <div className="p-6 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 cursor-pointer">
+                            <div className="flex items-center gap-3 mb-3">
+                              <Database className="h-8 w-8" />
+                              <div>
+                                <h4 className="font-bold text-lg">NameNode</h4>
+                                <p className="text-blue-100 text-sm">HDFS Master</p>
+                              </div>
+                            </div>
+                            <div className="text-sm text-blue-100">
+                              <p>• Gerencia metadados</p>
+                              <p>• Controla DataNodes</p>
+                              <p>• Porta: 9870</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="group relative">
+                          <div className="p-6 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 cursor-pointer">
+                            <div className="flex items-center gap-3 mb-3">
+                              <Activity className="h-8 w-8" />
+                              <div>
+                                <h4 className="font-bold text-lg">ResourceManager</h4>
+                                <p className="text-green-100 text-sm">YARN Master</p>
+                              </div>
+                            </div>
+                            <div className="text-sm text-green-100">
+                              <p>• Aloca recursos</p>
+                              <p>• Agenda jobs</p>
+                              <p>• Porta: 8088</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-center mb-8">
+                      <div className="w-px h-16 bg-gradient-to-b from-gray-300 to-gray-500"></div>
+                    </div>
+
+                    <div>
+                      <div className="text-center mb-4">
+                        <Badge variant="outline" className="text-purple-600 border-purple-600">Worker Nodes</Badge>
+                      </div>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        {[1, 2, 3].map((num) => (
+                          <div key={num} className="group relative">
+                            <div className="p-4 bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 cursor-pointer">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Shield className="h-6 w-6" />
+                                <div>
+                                  <h5 className="font-semibold">DataNode {num}</h5>
+                                  <p className="text-purple-100 text-xs">HDFS Worker</p>
+                                </div>
+                              </div>
+                              <div className="text-xs text-purple-100 mb-3">
+                                <p>• Armazena blocos</p>
+                                <p>• Reporta status</p>
+                              </div>
+                              
+                              <div className="pt-3 border-t border-purple-400">
+                                <div className="flex items-center gap-2">
+                                  <Zap className="h-4 w-4" />
+                                  <span className="text-xs font-medium">NodeManager</span>
+                                </div>
+                                <p className="text-xs text-purple-100">YARN Worker</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="absolute top-4 right-4">
+                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span>Online</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* Installation Tab */}
@@ -424,6 +671,100 @@ function App() {
                           <p className="text-xs text-gray-600 mt-1">Download arquivo</p>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Interactive Quiz */}
+            <Card className="bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-6 w-6 text-purple-600" />
+                  Quiz Interativo - Teste Seus Conhecimentos
+                </CardTitle>
+                <CardDescription>
+                  Responda às perguntas para validar seu aprendizado sobre Hadoop
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {/* Quiz Progress */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-gray-700">Progresso do Quiz</span>
+                      <span className="text-sm font-bold text-purple-600">Pergunta 1 de 5</span>
+                    </div>
+                    <Progress value={20} className="h-2" />
+                  </div>
+
+                  {/* Current Question */}
+                  <div className="bg-white p-6 rounded-lg border border-purple-200">
+                    <div className="mb-4">
+                      <Badge variant="outline" className="text-purple-600 border-purple-600 mb-3">
+                        Pergunta 1
+                      </Badge>
+                      <h3 className="text-lg font-semibold mb-3">
+                        Qual comando é usado para listar arquivos no HDFS?
+                      </h3>
+                    </div>
+
+                    <div className="space-y-3">
+                      <Button 
+                        variant="outline" 
+                        className="w-full justify-start p-4 h-auto text-left hover:bg-purple-50"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-sm font-bold">A</div>
+                          <span>hadoop fs -list</span>
+                        </div>
+                      </Button>
+
+                      <Button 
+                        variant="outline" 
+                        className="w-full justify-start p-4 h-auto text-left border-green-500 bg-green-50"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">B</div>
+                          <span>hdfs dfs -ls</span>
+                        </div>
+                      </Button>
+
+                      <Button 
+                        variant="outline" 
+                        className="w-full justify-start p-4 h-auto text-left hover:bg-purple-50"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-sm font-bold">C</div>
+                          <span>yarn list files</span>
+                        </div>
+                      </Button>
+                    </div>
+
+                    <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                      <div className="flex items-center gap-2 mb-2">
+                        <CheckCircle className="h-5 w-5 text-green-600" />
+                        <span className="font-medium text-green-700">Correto! 🎉</span>
+                      </div>
+                      <p className="text-sm text-green-600">
+                        <strong>hdfs dfs -ls</strong> é o comando padrão para listar arquivos e diretórios no HDFS.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="text-center p-4 bg-white rounded-lg border border-purple-200">
+                      <div className="text-2xl font-bold text-purple-600">100%</div>
+                      <p className="text-sm text-gray-600">Pontuação</p>
+                    </div>
+                    <div className="text-center p-4 bg-white rounded-lg border border-green-200">
+                      <div className="text-2xl font-bold text-green-600">5/5</div>
+                      <p className="text-sm text-gray-600">Corretas</p>
+                    </div>
+                    <div className="text-center p-4 bg-white rounded-lg border border-blue-200">
+                      <div className="text-2xl font-bold text-blue-600">⭐</div>
+                      <p className="text-sm text-gray-600">Expert</p>
                     </div>
                   </div>
                 </div>
