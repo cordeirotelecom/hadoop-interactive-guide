@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
+import React from 'react'
+import LoadingSpinner from './components/LoadingSpinner.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card.jsx'
 import { Button } from './components/ui/button.jsx'
 import { Badge } from './components/ui/badge.jsx'
@@ -29,26 +31,33 @@ import {
   Activity,
   Rocket,
   Cloud,
-  Users
+  Users,
+  Terminal,
+  FileText,
+  Settings,
+  Target,
+  Loader2
 } from 'lucide-react'
-import HadoopArchitecture from './components/HadoopArchitecture.jsx'
-import MapReduceDemo from './components/MapReduceDemo.jsx'
-import TerminalSimulator from './components/TerminalSimulator.jsx'
-import ModernEcosystem from './components/ModernEcosystem.jsx'
-import RealWorldCases from './components/RealWorldCases.jsx'
-import TechComparisons from './components/TechComparisons.jsx'
-import PythonDataProcessing from './components/PythonDataProcessing.jsx'
-import CareerCertifications from './components/CareerCertifications.jsx'
-import PracticalLabs from './components/PracticalLabs.jsx'
-import HadoopFundamentals from './components/HadoopFundamentals.jsx'
-import FunctionalLabs from './components/FunctionalLabs.jsx'
-import PerformanceMonitoring from './components/PerformanceMonitoring.jsx'
-import SecurityGovernance from './components/SecurityGovernance.jsx'
-import AdvancedProjects from './components/AdvancedProjects.jsx'
-import CloudContainerization from './components/CloudContainerization.jsx'
-import ResourcesCommunity from './components/ResourcesCommunity.jsx'
-import ClassroomGuide from './components/ClassroomGuide.jsx'
-import InteractiveExercises from './components/InteractiveExercises.jsx'
+
+// Lazy load components for better performance
+const HadoopArchitecture = React.lazy(() => import('./components/HadoopArchitecture.jsx'))
+const MapReduceDemo = React.lazy(() => import('./components/MapReduceDemo.jsx'))
+const TerminalSimulator = React.lazy(() => import('./components/TerminalSimulator.jsx'))
+const ModernEcosystem = React.lazy(() => import('./components/ModernEcosystem.jsx'))
+const RealWorldCases = React.lazy(() => import('./components/RealWorldCases.jsx'))
+const TechComparisons = React.lazy(() => import('./components/TechComparisons.jsx'))
+const PythonDataProcessing = React.lazy(() => import('./components/PythonDataProcessing.jsx'))
+const CareerCertifications = React.lazy(() => import('./components/CareerCertifications.jsx'))
+const HadoopFundamentalsExpanded = React.lazy(() => import('./components/HadoopFundamentalsExpanded.jsx'))
+const FunctionalLabs = React.lazy(() => import('./components/FunctionalLabs.jsx'))
+const PerformanceMonitoring = React.lazy(() => import('./components/PerformanceMonitoring.jsx'))
+const SecurityGovernance = React.lazy(() => import('./components/SecurityGovernance.jsx'))
+const AdvancedProjects = React.lazy(() => import('./components/AdvancedProjects.jsx'))
+const CloudContainerization = React.lazy(() => import('./components/CloudContainerization.jsx'))
+const ResourcesCommunity = React.lazy(() => import('./components/ResourcesCommunity.jsx'))
+const ClassroomGuide = React.lazy(() => import('./components/ClassroomGuide.jsx'))
+const InteractiveExercises = React.lazy(() => import('./components/InteractiveExercises.jsx'))
+const HadoopQuiz = React.lazy(() => import('./components/HadoopQuiz.jsx'))
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0)
@@ -128,220 +137,361 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Header */}
-      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-600 rounded-xl">
-                <Database className="h-8 w-8 text-white" />
+      {/* Header Moderno */}
+      <header className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-4 py-4 sm:py-6">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg">
+                <Database className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                  Apache Hadoop
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  Hadoop Interactive Guide
                 </h1>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                   Guia Interativo Completo
                 </p>
               </div>
             </div>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">
+            <Badge variant="secondary" className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm">
               Big Data Framework
             </Badge>
           </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 transition-all duration-300 ease-in-out">
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-1 h-auto">
-            <TabsTrigger value="overview" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <BookOpen className="h-4 w-4" />
-              <span className="text-center leading-tight">Visão Geral</span>
-            </TabsTrigger>
-            <TabsTrigger value="fundamentals" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Brain className="h-4 w-4" />
-              <span className="text-center leading-tight">Fundamentos</span>
-            </TabsTrigger>
-            <TabsTrigger value="architecture" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Settings className="h-4 w-4" />
-              <span className="text-center leading-tight">Arquitetura</span>
-            </TabsTrigger>
-            <TabsTrigger value="installation" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Download className="h-4 w-4" />
-              <span className="text-center leading-tight">Instalação</span>
-            </TabsTrigger>
-            <TabsTrigger value="examples" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Code className="h-4 w-4" />
-              <span className="text-center leading-tight">Exemplos</span>
-            </TabsTrigger>
-            <TabsTrigger value="practice" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Terminal className="h-4 w-4" />
-              <span className="text-center leading-tight">Prática</span>
-            </TabsTrigger>
-            <TabsTrigger value="python" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <FileText className="h-4 w-4" />
-              <span className="text-center leading-tight">Python</span>
-            </TabsTrigger>
-            <TabsTrigger value="labs" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Beaker className="h-4 w-4" />
-              <span className="text-center leading-tight">Labs</span>
-            </TabsTrigger>
-            <TabsTrigger value="career" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <GraduationCap className="h-4 w-4" />
-              <span className="text-center leading-tight">Carreira</span>
-            </TabsTrigger>
-            <TabsTrigger value="ecosystem" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Globe className="h-4 w-4" />
-              <span className="text-center leading-tight">Ecossistema</span>
-            </TabsTrigger>
-            <TabsTrigger value="cases" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Building2 className="h-4 w-4" />
-              <span className="text-center leading-tight">Casos Reais</span>
-            </TabsTrigger>
-            <TabsTrigger value="comparisons" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <BarChart3 className="h-4 w-4" />
-              <span className="text-center leading-tight">Comparações</span>
-            </TabsTrigger>
-            <TabsTrigger value="performance" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Activity className="h-4 w-4" />
-              <span className="text-center leading-tight">Performance</span>
-            </TabsTrigger>
-            <TabsTrigger value="security" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Shield className="h-4 w-4" />
-              <span className="text-center leading-tight">Segurança</span>
-            </TabsTrigger>
-            <TabsTrigger value="projects" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Rocket className="h-4 w-4" />
-              <span className="text-center leading-tight">Projetos</span>
-            </TabsTrigger>
-            <TabsTrigger value="cloud" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Cloud className="h-4 w-4" />
-              <span className="text-center leading-tight">Cloud</span>
-            </TabsTrigger>
-            <TabsTrigger value="resources" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Users className="h-4 w-4" />
-              <span className="text-center leading-tight">Recursos</span>
-            </TabsTrigger>
-            <TabsTrigger value="classroom" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <GraduationCap className="h-4 w-4" />
-              <span className="text-center leading-tight">Roteiro</span>
-            </TabsTrigger>
-            <TabsTrigger value="exercises" className="flex flex-col items-center gap-1 text-xs p-2 h-auto min-h-[60px]">
-              <Brain className="h-4 w-4" />
-              <span className="text-center leading-tight">Exercícios</span>
-            </TabsTrigger>
-          </TabsList>
+          {/* Navegação de Tabs Responsiva Melhorada */}
+          <div className="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-1 h-auto overflow-x-auto p-1 bg-gray-100 dark:bg-gray-800 rounded-xl">
+              <TabsTrigger value="overview" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <BookOpen className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Visão Geral</span>
+              </TabsTrigger>
+              <TabsTrigger value="fundamentals" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Brain className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Fundamentos</span>
+              </TabsTrigger>
+              <TabsTrigger value="architecture" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Settings className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Arquitetura</span>
+              </TabsTrigger>
+              <TabsTrigger value="installation" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Download className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Instalação</span>
+              </TabsTrigger>
+              <TabsTrigger value="examples" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Code className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Exemplos</span>
+              </TabsTrigger>
+              <TabsTrigger value="practice" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Terminal className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Prática</span>
+              </TabsTrigger>
+              <TabsTrigger value="python" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <FileText className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Python</span>
+              </TabsTrigger>
+              <TabsTrigger value="labs" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Beaker className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Labs</span>
+              </TabsTrigger>
+              <TabsTrigger value="career" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <GraduationCap className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Carreira</span>
+              </TabsTrigger>
+              <TabsTrigger value="ecosystem" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Globe className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Ecossistema</span>
+              </TabsTrigger>
+              <TabsTrigger value="cases" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Building2 className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Casos Reais</span>
+              </TabsTrigger>
+              <TabsTrigger value="comparisons" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <BarChart3 className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Comparações</span>
+              </TabsTrigger>
+              <TabsTrigger value="performance" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Activity className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Performance</span>
+              </TabsTrigger>
+              <TabsTrigger value="security" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Shield className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Segurança</span>
+              </TabsTrigger>
+              <TabsTrigger value="projects" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Rocket className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Projetos</span>
+              </TabsTrigger>
+              <TabsTrigger value="cloud" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Cloud className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Cloud</span>
+              </TabsTrigger>
+              <TabsTrigger value="resources" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Users className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Recursos</span>
+              </TabsTrigger>
+              <TabsTrigger value="classroom" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <GraduationCap className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Roteiro</span>
+              </TabsTrigger>
+              <TabsTrigger value="exercises" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Brain className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Exercícios</span>
+              </TabsTrigger>
+              <TabsTrigger value="quiz" className="flex flex-col items-center gap-1 text-xs p-3 h-auto min-h-[70px] rounded-lg transition-all duration-200 hover:bg-white/80 dark:hover:bg-gray-700 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:shadow-md">
+                <Target className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center leading-tight text-[10px] sm:text-xs font-medium">Quiz</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-          {/* Overview Tab */}
-          <TabsContent value="overview" className="space-y-6">
-            <Card className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-              <CardHeader>
-                <CardTitle className="text-3xl flex items-center gap-3">
-                  <Zap className="h-8 w-8" />
-                  O que é Apache Hadoop?
+          {/* Overview Tab com Animações Suaves */}
+          <TabsContent value="overview" className="space-y-8 animate-in fade-in duration-500">
+            {/* Hero Section Aprimorado */}
+            <Card className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white overflow-hidden relative animate-gradient animate-fade-in hover-lift">
+              <div className="absolute inset-0 bg-black/5 backdrop-blur-sm"></div>
+              <CardHeader className="relative z-10 pb-4">
+                <CardTitle className="text-3xl lg:text-4xl font-bold flex items-center gap-4 animate-slide-up">
+                  <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm animate-pulse-glow">
+                    <Zap className="h-8 w-8 lg:h-10 lg:w-10 animate-bounce-subtle" />
+                  </div>
+                  Apache Hadoop - Plataforma de Big Data
                 </CardTitle>
-                <CardDescription className="text-blue-100 text-lg">
-                  Framework de código aberto para processamento distribuído de Big Data
+                <CardDescription className="text-blue-100 text-lg lg:text-xl font-medium animate-slide-up">
+                  Framework distribuído para processamento de petabytes de dados em clusters escaláveis
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-lg leading-relaxed">
-                  O Apache Hadoop revolucionou a forma como lidamos com grandes volumes de dados. 
-                  É uma solução robusta, econômica e escalável que permite o processamento distribuído 
-                  de conjuntos de dados massivos em clusters de computadores comuns.
-                </p>
-              </CardContent>
-            </Card>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <BarChart3 className="h-5 w-5 text-green-600" />
-                    Escalabilidade
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Adicione facilmente novos nós ao cluster para crescer junto com seus dados.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-blue-600" />
-                    Confiabilidade
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Tolerância a falhas automática com replicação de dados em múltiplos nós.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-purple-600" />
-                    Performance
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Processamento paralelo que aproveita ao máximo os recursos do cluster.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Por que usar Hadoop?</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-green-600 mb-3">Vantagens</h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        Custo-efetivo para grandes volumes
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        Escalabilidade horizontal
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        Tolerância a falhas
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        Flexibilidade de dados
-                      </li>
-                    </ul>
+              <CardContent className="relative z-10">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <p className="text-lg lg:text-xl leading-relaxed">
+                      O Apache Hadoop é a <span className="font-bold text-yellow-200">espinha dorsal do Big Data moderno</span>, 
+                      processando dados em escala de zettabytes para empresas como Netflix, Uber e Meta.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2 text-sm">
+                        💼 95% das Fortune 500
+                      </Badge>
+                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2 text-sm">
+                        🌐 10,000+ clusters ativos
+                      </Badge>
+                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2 text-sm">
+                        💰 60% economia vs proprietário
+                      </Badge>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-blue-600 mb-3">Casos de Uso</h4>
-                    <ul className="space-y-2 text-sm">
-                      <li>• Análise de logs de servidores web</li>
-                      <li>• Processamento de dados de sensores IoT</li>
-                      <li>• Data warehousing e ETL</li>
-                      <li>• Machine Learning em grandes datasets</li>
-                    </ul>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                      <div className="text-3xl lg:text-4xl font-bold text-yellow-200">175 ZB</div>
+                      <div className="text-sm lg:text-base opacity-90 mt-2">Dados globais em 2025</div>
+                    </div>
+                    <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                      <div className="text-3xl lg:text-4xl font-bold text-green-200">$274B</div>
+                      <div className="text-sm lg:text-base opacity-90 mt-2">Mercado Big Data</div>
+                    </div>
+                    <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                      <div className="text-3xl lg:text-4xl font-bold text-orange-200">10M+</div>
+                      <div className="text-sm lg:text-base opacity-90 mt-2">Profissionais</div>
+                    </div>
+                    <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                      <div className="text-3xl lg:text-4xl font-bold text-purple-200">99.9%</div>
+                      <div className="text-sm lg:text-base opacity-90 mt-2">Disponibilidade</div>
+                    </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
+
+            {/* Cards de Recursos Aprimorados */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 animate-fade-in">
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-green-200 dark:hover:border-green-800 hover-lift smooth-transition">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-3 text-lg">
+                    <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg group-hover:scale-110 smooth-transition animate-bounce-subtle">
+                      <BarChart3 className="h-6 w-6 text-green-600 dark:text-green-400" />
+                    </div>
+                    Escalabilidade Massiva
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    De gigabytes a petabytes. Clusters com 1-10,000+ nodes processando dados ilimitados com performance linear.
+                  </p>
+                  <div className="mt-4 text-sm text-green-600 dark:text-green-400 font-medium">
+                    ↗️ Escala horizontal automática
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-blue-200 dark:hover:border-blue-800">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-3 text-lg">
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Shield className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    Tolerância a Falhas
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Auto-recuperação inteligente, replicação tripla, zero downtime com NameNode HA e backup automático.
+                  </p>
+                  <div className="mt-4 text-sm text-blue-600 dark:text-blue-400 font-medium">
+                    🛡️ 99.9% de disponibilidade
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-purple-200 dark:hover:border-purple-800">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-3 text-lg">
+                    <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Zap className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    Performance Extrema
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Processamento paralelo massivo com throughput de TBs/hora em clusters otimizados e distribuídos.
+                  </p>
+                  <div className="mt-4 text-sm text-purple-600 dark:text-purple-400 font-medium">
+                    ⚡ Até 1000x mais rápido que sistemas tradicionais
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-yellow-200 dark:hover:border-yellow-800">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-3 text-lg">
+                    <div className="p-2 bg-yellow-100 dark:bg-yellow-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <DollarSign className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                    </div>
+                    Custo-Benefício
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Hardware commodity + software open source = 90% economia vs soluções proprietárias de Big Data.
+                  </p>
+                  <div className="mt-4 text-sm text-yellow-600 dark:text-yellow-400 font-medium">
+                    💰 ROI de 300% em 2 anos típico
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Seção Aprimorada "Por que usar Hadoop?" */}
+            <div className="grid lg:grid-cols-2 gap-8">
+              <Card className="border-2 border-green-200 dark:border-green-800">
+                <CardHeader className="bg-green-50 dark:bg-green-950 rounded-t-lg">
+                  <CardTitle className="flex items-center gap-2 text-green-800 dark:text-green-200">
+                    <CheckCircle className="h-6 w-6" />
+                    Vantagens do Hadoop
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 dark:bg-green-900 rounded-full mt-1">
+                        <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Custo-efetivo para grandes volumes</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Use hardware commodity ao invés de servidores caros</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 dark:bg-green-900 rounded-full mt-1">
+                        <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Escalabilidade horizontal ilimitada</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Adicione nodes conforme a demanda cresce</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 dark:bg-green-900 rounded-full mt-1">
+                        <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Processa qualquer formato</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Dados estruturados, semi-estruturados e não-estruturados</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 dark:bg-green-900 rounded-full mt-1">
+                        <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Ecossistema maduro e ativo</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Spark, Hive, HBase, Kafka integrados nativamente</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-orange-200 dark:border-orange-800">
+                <CardHeader className="bg-orange-50 dark:bg-orange-950 rounded-t-lg">
+                  <CardTitle className="flex items-center gap-2 text-orange-800 dark:text-orange-200">
+                    <AlertTriangle className="h-6 w-6" />
+                    Considerações Importantes
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-orange-100 dark:bg-orange-900 rounded-full mt-1">
+                        <AlertTriangle className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Complexidade inicial elevada</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Requer conhecimento especializado para setup</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-orange-100 dark:bg-orange-900 rounded-full mt-1">
+                        <AlertTriangle className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Latência maior para queries pequenas</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Otimizado para batch processing, não real-time</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-orange-100 dark:bg-orange-900 rounded-full mt-1">
+                        <AlertTriangle className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Overhead para datasets pequenos</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Investimento justificado apenas com TB+ de dados</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-orange-100 dark:bg-orange-900 rounded-full mt-1">
+                        <AlertTriangle className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">Manutenção contínua necessária</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Monitoramento, tuning e updates regulares</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
 
           {/* Architecture Tab */}
           <TabsContent value="architecture">
-            <HadoopArchitecture />
+            <Suspense fallback={<LoadingSpinner message="Carregando Arquitetura Hadoop..." />}>
+              <HadoopArchitecture />
+            </Suspense>
           </TabsContent>
 
           {/* Installation Tab */}
@@ -412,82 +562,121 @@ function App() {
 
           {/* Examples Tab */}
           <TabsContent value="examples">
-            <MapReduceDemo />
+            <Suspense fallback={<LoadingSpinner message="Carregando exemplos MapReduce..." />}>
+              <MapReduceDemo />
+            </Suspense>
           </TabsContent>
 
           {/* Practice Tab */}
           <TabsContent value="practice">
-            <TerminalSimulator />
+            <Suspense fallback={<LoadingSpinner message="Carregando simulador de terminal..." />}>
+              <TerminalSimulator />
+            </Suspense>
           </TabsContent>
 
           {/* Ecosystem Tab */}
           <TabsContent value="ecosystem">
-            <ModernEcosystem />
+            <Suspense fallback={<LoadingSpinner message="Carregando ecossistema Hadoop..." />}>
+              <ModernEcosystem />
+            </Suspense>
           </TabsContent>
 
           {/* Real World Cases Tab */}
           <TabsContent value="cases">
-            <RealWorldCases />
+            <Suspense fallback={<LoadingSpinner message="Carregando casos reais..." />}>
+              <RealWorldCases />
+            </Suspense>
           </TabsContent>
 
           {/* Python Data Processing Tab */}
           <TabsContent value="python">
-            <PythonDataProcessing />
+            <Suspense fallback={<LoadingSpinner message="Carregando processamento com Python..." />}>
+              <PythonDataProcessing />
+            </Suspense>
           </TabsContent>
 
           {/* Fundamentals Tab */}
           <TabsContent value="fundamentals">
-            <HadoopFundamentals />
+            <Suspense fallback={<LoadingSpinner message="Carregando fundamentos..." />}>
+              <HadoopFundamentalsExpanded />
+            </Suspense>
           </TabsContent>
 
           {/* Practical Labs Tab */}
           <TabsContent value="labs">
-            <FunctionalLabs />
+            <Suspense fallback={<LoadingSpinner message="Carregando laboratórios..." />}>
+              <FunctionalLabs />
+            </Suspense>
           </TabsContent>
 
           {/* Career and Certifications Tab */}
           <TabsContent value="career">
-            <CareerCertifications />
+            <Suspense fallback={<LoadingSpinner message="Carregando informações de carreira..." />}>
+              <CareerCertifications />
+            </Suspense>
           </TabsContent>
 
                 {/* Tech Comparisons Tab */}
           <TabsContent value="comparisons">
-            <TechComparisons />
+            <Suspense fallback={<LoadingSpinner message="Carregando comparações tecnológicas..." />}>
+              <TechComparisons />
+            </Suspense>
           </TabsContent>
 
           {/* Performance Monitoring Tab */}
           <TabsContent value="performance">
-            <PerformanceMonitoring />
+            <Suspense fallback={<LoadingSpinner message="Carregando monitoramento de performance..." />}>
+              <PerformanceMonitoring />
+            </Suspense>
           </TabsContent>
 
           {/* Security and Governance Tab */}
           <TabsContent value="security">
-            <SecurityGovernance />
+            <Suspense fallback={<LoadingSpinner message="Carregando segurança e governança..." />}>
+              <SecurityGovernance />
+            </Suspense>
           </TabsContent>
 
           {/* Advanced Projects Tab */}
           <TabsContent value="projects">
-            <AdvancedProjects />
+            <Suspense fallback={<LoadingSpinner message="Carregando projetos avançados..." />}>
+              <AdvancedProjects />
+            </Suspense>
           </TabsContent>
 
           {/* Cloud and Containerization Tab */}
           <TabsContent value="cloud">
-            <CloudContainerization />
+            <Suspense fallback={<LoadingSpinner message="Carregando soluções cloud..." />}>
+              <CloudContainerization />
+            </Suspense>
           </TabsContent>
 
           {/* Resources and Community Tab */}
           <TabsContent value="resources">
-            <ResourcesCommunity />
+            <Suspense fallback={<LoadingSpinner message="Carregando recursos e comunidade..." />}>
+              <ResourcesCommunity />
+            </Suspense>
           </TabsContent>
 
           {/* Classroom Guide Tab */}
           <TabsContent value="classroom">
-            <ClassroomGuide />
+            <Suspense fallback={<LoadingSpinner message="Carregando guia de sala de aula..." />}>
+              <ClassroomGuide />
+            </Suspense>
           </TabsContent>
 
           {/* Interactive Exercises Tab */}
           <TabsContent value="exercises">
-            <InteractiveExercises />
+            <Suspense fallback={<LoadingSpinner message="Carregando exercícios interativos..." />}>
+              <InteractiveExercises />
+            </Suspense>
+          </TabsContent>
+
+          {/* Hadoop Quiz Tab */}
+          <TabsContent value="quiz">
+            <Suspense fallback={<LoadingSpinner message="Carregando quiz..." />}>
+              <HadoopQuiz />
+            </Suspense>
           </TabsContent>
         </Tabs>
       </main>
