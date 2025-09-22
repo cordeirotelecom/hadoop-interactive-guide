@@ -18,5 +18,8 @@ export default defineConfig({
       port: 3000
     }
   },
-  base: process.env.NODE_ENV === 'production' ? '/hadoop-interactive-guide/' : './'
+  css: {
+    postcss: './postcss.config.cjs',
+  },
+  base: './'
 })
