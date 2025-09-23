@@ -25,12 +25,24 @@ import {
   ChevronLeft,
   ChevronRight,
   RotateCcw,
-  Play
+  Play,
+  Moon,
+  Sun,
+  Award,
+  Star,
+  Trophy
 } from 'lucide-react'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
+  
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+    document.documentElement.classList.toggle('dark')
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
       {/* Header Moderno */}
       <header className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4 sm:py-6">
@@ -48,9 +60,23 @@ function App() {
                 </p>
               </div>
             </div>
-            <Badge variant="secondary" className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm">
-              Big Data Framework
-            </Badge>
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleDarkMode}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                {darkMode ? (
+                  <Sun className="h-5 w-5 text-yellow-500" />
+                ) : (
+                  <Moon className="h-5 w-5 text-gray-600" />
+                )}
+              </Button>
+              <Badge variant="secondary" className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm">
+                Big Data Framework
+              </Badge>
+            </div>
           </div>
         </div>
       </header>
@@ -2582,6 +2608,743 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Sistema de Quiz Interativo */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BookOpen className="h-6 w-6 text-indigo-600" />
+                  Quiz Interativo - Teste Seus Conhecimentos
+                </CardTitle>
+                <CardDescription>
+                  Avalie seu domínio em Hadoop com quizzes adaptativos e feedback personalizado
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Seletor de Nível e Categoria */}
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">1</span>
+                      </div>
+                      <h4 className="font-semibold text-green-800">Iniciante</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Conceitos básicos, arquitetura e comandos fundamentais
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full text-green-700 border-green-300">
+                      <Play className="h-4 w-4 mr-2" />
+                      Começar Quiz (20 questões)
+                    </Button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">2</span>
+                      </div>
+                      <h4 className="font-semibold text-blue-800">Intermediário</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">
+                      MapReduce, Hive, Pig, performance tuning e troubleshooting
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full text-blue-700 border-blue-300">
+                      <Play className="h-4 w-4 mr-2" />
+                      Começar Quiz (25 questões)
+                    </Button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-200">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">3</span>
+                      </div>
+                      <h4 className="font-semibold text-purple-800">Avançado</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Arquitetura enterprise, security, cloud deployment
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full text-purple-700 border-purple-300">
+                      <Play className="h-4 w-4 mr-2" />
+                      Começar Quiz (30 questões)
+                    </Button>
+                  </div>
+                </div>
+                
+                {/* Quiz em Andamento */}
+                <div className="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-lg border border-indigo-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-indigo-800">Quiz Hadoop Intermediário</h3>
+                    <Badge variant="secondary">Questão 5/25</Badge>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <Progress value={20} className="w-full h-2 mb-2" />
+                    <div className="flex justify-between text-sm text-gray-600">
+                      <span>Progresso: 20%</span>
+                      <span>Tempo: 8:30</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-lg border border-indigo-100 mb-4">
+                    <h4 className="font-medium text-indigo-800 mb-3">
+                      5. Qual é a função principal do NameNode no HDFS?
+                    </h4>
+                    
+                    <div className="space-y-3">
+                      <label className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                        <input type="radio" name="question5" className="text-indigo-600" />
+                        <span className="text-sm">Armazenar os blocos de dados dos arquivos</span>
+                      </label>
+                      
+                      <label className="flex items-center gap-3 p-3 rounded-lg border border-indigo-300 bg-indigo-50 cursor-pointer">
+                        <input type="radio" name="question5" className="text-indigo-600" defaultChecked />
+                        <span className="text-sm font-medium">Gerenciar metadados e namespace do sistema de arquivos</span>
+                      </label>
+                      
+                      <label className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                        <input type="radio" name="question5" className="text-indigo-600" />
+                        <span className="text-sm">Executar jobs MapReduce</span>
+                      </label>
+                      
+                      <label className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                        <input type="radio" name="question5" className="text-indigo-600" />
+                        <span className="text-sm">Balancear carga entre DataNodes</span>
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <Button variant="outline" size="sm">
+                      <ChevronLeft className="h-4 w-4 mr-2" />
+                      Anterior
+                    </Button>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="sm">
+                        Pular
+                      </Button>
+                      <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700">
+                        Próxima
+                        <ChevronRight className="h-4 w-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Estatísticas e Resultados */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-lg border border-green-200">
+                    <h4 className="font-semibold text-green-800 mb-4 flex items-center gap-2">
+                      📊 Suas Estatísticas
+                      <Badge variant="secondary">Últimos 30 dias</Badge>
+                    </h4>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Quizzes Completados</span>
+                        <span className="font-bold text-green-700">12</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Pontuação Média</span>
+                        <span className="font-bold text-green-700">87%</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Melhor Categoria</span>
+                        <span className="font-bold text-green-700">HDFS</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Streak Atual</span>
+                        <span className="font-bold text-green-700">5 dias</span>
+                      </div>
+                      
+                      <div className="mt-4 p-3 bg-green-100 rounded-lg">
+                        <div className="text-sm font-medium text-green-800">Nível Atual: Intermediário+</div>
+                        <div className="text-xs text-green-600 mt-1">
+                          Faltam 180 pontos para Avançado
+                        </div>
+                        <Progress value={70} className="w-full h-1.5 mt-2" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 p-5 rounded-lg border border-orange-200">
+                    <h4 className="font-semibold text-orange-800 mb-4 flex items-center gap-2">
+                      🎯 Áreas para Melhorar
+                      <Badge variant="secondary">Recomendações</Badge>
+                    </h4>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Security & Governance</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-orange-700">45%</span>
+                          <AlertTriangle className="h-4 w-4 text-orange-500" />
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Performance Tuning</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-orange-700">62%</span>
+                          <AlertTriangle className="h-4 w-4 text-orange-500" />
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Cloud Deployment</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-orange-700">58%</span>
+                          <AlertTriangle className="h-4 w-4 text-orange-500" />
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 p-3 bg-orange-100 rounded-lg">
+                        <div className="text-sm font-medium text-orange-800">Recomendação:</div>
+                        <div className="text-xs text-orange-600 mt-1">
+                          Revisar seção "Security & Governance" e fazer quiz focado
+                        </div>
+                        <Button size="sm" variant="outline" className="mt-2 text-xs">
+                          Quiz Direcionado
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Quiz por Categorias */}
+                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                    🧩 Quiz por Categorias
+                    <Badge variant="secondary">Especialização</Badge>
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-white rounded-lg border border-purple-100">
+                      <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Database className="h-6 w-6 text-white" />
+                      </div>
+                      <h4 className="font-medium text-purple-700 mb-2">HDFS</h4>
+                      <div className="text-xs text-gray-600 mb-3">
+                        <div>15 questões • 10 min</div>
+                        <div>Última: 92%</div>
+                      </div>
+                      <Button size="sm" variant="outline" className="w-full text-xs">
+                        Começar
+                      </Button>
+                    </div>
+                    
+                    <div className="text-center p-4 bg-white rounded-lg border border-purple-100">
+                      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Zap className="h-6 w-6 text-white" />
+                      </div>
+                      <h4 className="font-medium text-purple-700 mb-2">MapReduce</h4>
+                      <div className="text-xs text-gray-600 mb-3">
+                        <div>20 questões • 15 min</div>
+                        <div>Última: 78%</div>
+                      </div>
+                      <Button size="sm" variant="outline" className="w-full text-xs">
+                        Começar
+                      </Button>
+                    </div>
+                    
+                    <div className="text-center p-4 bg-white rounded-lg border border-purple-100">
+                      <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Shield className="h-6 w-6 text-white" />
+                      </div>
+                      <h4 className="font-medium text-purple-700 mb-2">Security</h4>
+                      <div className="text-xs text-gray-600 mb-3">
+                        <div>12 questões • 8 min</div>
+                        <div>Última: 45%</div>
+                      </div>
+                      <Button size="sm" variant="outline" className="w-full text-xs">
+                        Refazer
+                      </Button>
+                    </div>
+                    
+                    <div className="text-center p-4 bg-white rounded-lg border border-purple-100">
+                      <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <BarChart3 className="h-6 w-6 text-white" />
+                      </div>
+                      <h4 className="font-medium text-purple-700 mb-2">Performance</h4>
+                      <div className="text-xs text-gray-600 mb-3">
+                        <div>18 questões • 12 min</div>
+                        <div>Pendente</div>
+                      </div>
+                      <Button size="sm" variant="outline" className="w-full text-xs">
+                        Novo
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Certificação Mock Exams */}
+                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-6 rounded-lg border border-amber-200">
+                  <h3 className="text-xl font-bold text-amber-800 mb-4 flex items-center gap-2">
+                    🏆 Simulados de Certificação
+                    <Badge variant="secondary">Prep Exams</Badge>
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-white p-4 rounded-lg border border-amber-100">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-xs">CDF</span>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-amber-700">Cloudera CCA</h4>
+                          <p className="text-xs text-gray-600">Data Analyst</p>
+                        </div>
+                      </div>
+                      
+                      <div className="text-sm text-gray-600 mb-4">
+                        <div>• 60 questões hands-on</div>
+                        <div>• 120 minutos</div>
+                        <div>• Passing score: 70%</div>
+                      </div>
+                      
+                      <Button size="sm" variant="outline" className="w-full">
+                        Iniciar Simulado
+                      </Button>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-amber-100">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-xs">AWS</span>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-amber-700">AWS Big Data</h4>
+                          <p className="text-xs text-gray-600">Specialty</p>
+                        </div>
+                      </div>
+                      
+                      <div className="text-sm text-gray-600 mb-4">
+                        <div>• 65 questões multiple choice</div>
+                        <div>• 170 minutos</div>
+                        <div>• Passing score: 75%</div>
+                      </div>
+                      
+                      <Button size="sm" variant="outline" className="w-full">
+                        Iniciar Simulado
+                      </Button>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-amber-100">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-xs">AZ</span>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-amber-700">Azure DP-203</h4>
+                          <p className="text-xs text-gray-600">Data Engineer</p>
+                        </div>
+                      </div>
+                      
+                      <div className="text-sm text-gray-600 mb-4">
+                        <div>• 50-60 questões</div>
+                        <div>• 150 minutos</div>
+                        <div>• Passing score: 70%</div>
+                      </div>
+                      
+                      <Button size="sm" variant="outline" className="w-full">
+                        Iniciar Simulado
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Call to Action */}
+                <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 rounded-lg text-white text-center">
+                  <h4 className="text-xl font-bold mb-2">🎯 Domine Hadoop com Prática Inteligente!</h4>
+                  <p className="mb-4 opacity-90">
+                    Sistema adaptativo de quiz que evolui com seu conhecimento
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      🧠 Quiz Personalizado
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      📈 Relatório Completo
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100">
+                      🏆 Ranking Global
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Calculadora de Dimensionamento de Cluster */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Network className="h-6 w-6 text-cyan-600" />
+                  Calculadora de Cluster - Dimensionamento Inteligente
+                </CardTitle>
+                <CardDescription>
+                  Calcule recursos necessários baseado em workload, volume de dados e SLA
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Input Parameters */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-lg border border-blue-200">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-4">📊 Parâmetros de Workload</h3>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-blue-700 mb-2">
+                          Volume de Dados (TB)
+                        </label>
+                        <input 
+                          type="number" 
+                          defaultValue="10"
+                          className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          placeholder="Ex: 10"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-blue-700 mb-2">
+                          Taxa de Crescimento Anual (%)
+                        </label>
+                        <input 
+                          type="number" 
+                          defaultValue="20"
+                          className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          placeholder="Ex: 20"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-blue-700 mb-2">
+                          Usuários Concorrentes
+                        </label>
+                        <input 
+                          type="number" 
+                          defaultValue="50"
+                          className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          placeholder="Ex: 50"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-blue-700 mb-2">
+                          Tipo de Workload
+                        </label>
+                        <select className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                          <option>Batch Processing (MapReduce/Spark)</option>
+                          <option>Interactive Analytics (Hive/Impala)</option>
+                          <option>Real-time Processing (Streaming)</option>
+                          <option>Machine Learning (MLlib/TensorFlow)</option>
+                          <option>Mixed Workload</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-lg border border-green-200">
+                    <h3 className="text-lg font-semibold text-green-800 mb-4">⚡ Requisitos de SLA</h3>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-green-700 mb-2">
+                          Disponibilidade Requerida
+                        </label>
+                        <select className="w-full p-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                          <option>99.9% (8.76h downtime/ano)</option>
+                          <option>99.95% (4.38h downtime/ano)</option>
+                          <option>99.99% (52.56min downtime/ano)</option>
+                          <option>99.999% (5.26min downtime/ano)</option>
+                        </select>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-green-700 mb-2">
+                          Performance Target
+                        </label>
+                        <select className="w-full p-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                          <option>Standard (queries &lt; 30s)</option>
+                          <option>Fast (queries &lt; 10s)</option>
+                          <option>Real-time (queries &lt; 3s)</option>
+                          <option>Ultra-fast (queries &lt; 1s)</option>
+                        </select>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-green-700 mb-2">
+                          Budget Range (USD/mês)
+                        </label>
+                        <select className="w-full p-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                          <option>$1k - $5k (Startup)</option>
+                          <option>$5k - $20k (SMB)</option>
+                          <option>$20k - $100k (Enterprise)</option>
+                          <option>$100k+ (Large Enterprise)</option>
+                        </select>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-green-700 mb-2">
+                          Deployment Preference
+                        </label>
+                        <select className="w-full p-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                          <option>On-Premise</option>
+                          <option>Public Cloud (AWS/Azure/GCP)</option>
+                          <option>Hybrid Cloud</option>
+                          <option>Multi-Cloud</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Calculate Button */}
+                <div className="text-center">
+                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8">
+                    <BarChart3 className="h-5 w-5 mr-2" />
+                    Calcular Dimensionamento
+                  </Button>
+                </div>
+                
+                {/* Results */}
+                <div className="bg-gradient-to-r from-gray-50 to-slate-50 p-6 rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    🎯 Recomendação de Cluster
+                    <Badge variant="secondary">Otimizado para seu workload</Badge>
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6 mb-6">
+                    {/* Master Nodes */}
+                    <div className="bg-white p-4 rounded-lg border border-gray-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                          <Users className="h-4 w-4 text-white" />
+                        </div>
+                        <h4 className="font-semibold text-purple-700">Master Nodes</h4>
+                      </div>
+                      
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Quantidade:</span>
+                          <span className="font-bold">3 nodes</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>vCPUs:</span>
+                          <span className="font-bold">8 cores each</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>RAM:</span>
+                          <span className="font-bold">32 GB each</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Storage:</span>
+                          <span className="font-bold">500 GB SSD</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Worker Nodes */}
+                    <div className="bg-white p-4 rounded-lg border border-gray-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                          <Network className="h-4 w-4 text-white" />
+                        </div>
+                        <h4 className="font-semibold text-blue-700">Worker Nodes</h4>
+                      </div>
+                      
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Quantidade:</span>
+                          <span className="font-bold">12 nodes</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>vCPUs:</span>
+                          <span className="font-bold">16 cores each</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>RAM:</span>
+                          <span className="font-bold">64 GB each</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Storage:</span>
+                          <span className="font-bold">2 TB HDD + 200 GB SSD</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Edge Nodes */}
+                    <div className="bg-white p-4 rounded-lg border border-gray-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                          <Terminal className="h-4 w-4 text-white" />
+                        </div>
+                        <h4 className="font-semibold text-green-700">Edge Nodes</h4>
+                      </div>
+                      
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Quantidade:</span>
+                          <span className="font-bold">2 nodes</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>vCPUs:</span>
+                          <span className="font-bold">8 cores each</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>RAM:</span>
+                          <span className="font-bold">32 GB each</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Storage:</span>
+                          <span className="font-bold">1 TB SSD</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Configuration Summary */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-gradient-to-r from-indigo-50 to-blue-50 p-4 rounded-lg border border-indigo-200">
+                      <h4 className="font-semibold text-indigo-800 mb-3">📋 Resumo da Configuração</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>Total vCPUs:</span>
+                          <span className="font-bold">224 cores</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Total RAM:</span>
+                          <span className="font-bold">864 GB</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Total Storage:</span>
+                          <span className="font-bold">26.6 TB</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>HDFS Capacity:</span>
+                          <span className="font-bold">24 TB (3x replication)</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Effective Storage:</span>
+                          <span className="font-bold">8 TB usable</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
+                      <h4 className="font-semibold text-green-800 mb-3">💰 Estimativa de Custos</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span>On-Premise (CapEx):</span>
+                          <span className="font-bold">$180k - $220k</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>AWS EMR (OpEx):</span>
+                          <span className="font-bold">$12k - $15k/mês</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Azure HDInsight:</span>
+                          <span className="font-bold">$14k - $17k/mês</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>GCP Dataproc:</span>
+                          <span className="font-bold">$11k - $14k/mês</span>
+                        </div>
+                        <div className="text-xs text-green-600 mt-2">
+                          *Estimativas incluem 24x7 operation
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Deployment Options */}
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-lg border border-orange-200 text-center">
+                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold">🏢</span>
+                    </div>
+                    <h4 className="font-semibold text-orange-800 mb-2">On-Premise</h4>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Controle total, compliance, latência mínima
+                    </p>
+                    <Button size="sm" variant="outline" className="w-full">
+                      Ver Especificações
+                    </Button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200 text-center">
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold">☁️</span>
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">Public Cloud</h4>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Elasticidade, managed services, OpEx model
+                    </p>
+                    <Button size="sm" variant="outline" className="w-full">
+                      Comparar Providers
+                    </Button>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-200 text-center">
+                    <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold">🔗</span>
+                    </div>
+                    <h4 className="font-semibold text-purple-800 mb-2">Hybrid</h4>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Melhor dos dois mundos, bursting capability
+                    </p>
+                    <Button size="sm" variant="outline" className="w-full">
+                      Arquitetura Híbrida
+                    </Button>
+                  </div>
+                </div>
+                
+                {/* Advanced Recommendations */}
+                <div className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-6 rounded-lg text-white">
+                  <h4 className="text-xl font-bold mb-4">🚀 Recomendações Avançadas</h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold mb-2">⚡ Otimizações de Performance</h5>
+                      <div className="space-y-1 text-sm opacity-90">
+                        <div>• Use SSD para NameNode e metadata</div>
+                        <div>• Configure YARN memory: 768 GB disponível</div>
+                        <div>• Enable compression (Snappy/LZ4)</div>
+                        <div>• Configure 3-way replication para HA</div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-semibold mb-2">🛡️ Considerações de Segurança</h5>
+                      <div className="space-y-1 text-sm opacity-90">
+                        <div>• Implement Kerberos authentication</div>
+                        <div>• Use Apache Ranger para authorization</div>
+                        <div>• Enable TLS/SSL encryption</div>
+                        <div>• Configure network segmentation</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center gap-4 mt-6">
+                    <Button variant="secondary" className="bg-white text-teal-600 hover:bg-gray-100">
+                      📋 Download Sizing Report
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-teal-600 hover:bg-gray-100">
+                      🏗️ Generate Architecture
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-teal-600 hover:bg-gray-100">
+                      💰 ROI Calculator
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Sistema de Favoritos Avançado */}
             <Card>
               <CardHeader>
@@ -2862,6 +3625,80 @@ function App() {
                       <CheckCircle className="h-3 w-3 text-purple-500" />
                       <span>3 planos ativos</span>
                     </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Sistema de Achievements e Badges */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Trophy className="h-6 w-6 text-yellow-600" />
+                  Sistema de Conquistas & Badges
+                </CardTitle>
+                <CardDescription>
+                  Gamificação do aprendizado com conquistas, badges e progressão
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Progress Overview */}
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border border-yellow-200">
+                  <h3 className="text-xl font-bold text-yellow-800 mb-4 flex items-center gap-2">
+                    🏆 Seu Progresso Hadoop
+                    <Badge variant="secondary">Level 7 - Advanced Practitioner</Badge>
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-white rounded-lg border border-yellow-100">
+                      <div className="text-2xl font-bold text-yellow-600">850</div>
+                      <div className="text-sm text-gray-600">XP Total</div>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                        <div className="bg-yellow-500 h-2 rounded-full" style={{width: '85%'}}></div>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1">150 XP para Level 8</div>
+                    </div>
+                    
+                    <div className="text-center p-4 bg-white rounded-lg border border-yellow-100">
+                      <div className="text-2xl font-bold text-blue-600">12</div>
+                      <div className="text-sm text-gray-600">Badges Earned</div>
+                      <div className="flex justify-center mt-2">
+                        <div className="flex -space-x-1">
+                          <div className="w-6 h-6 bg-blue-500 rounded-full border-2 border-white"></div>
+                          <div className="w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                          <div className="w-6 h-6 bg-purple-500 rounded-full border-2 border-white"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center p-4 bg-white rounded-lg border border-yellow-100">
+                      <div className="text-2xl font-bold text-green-600">7</div>
+                      <div className="text-sm text-gray-600">Streaks</div>
+                      <div className="text-xs text-green-600 mt-1">7 dias consecutivos</div>
+                    </div>
+                    
+                    <div className="text-center p-4 bg-white rounded-lg border border-yellow-100">
+                      <div className="text-2xl font-bold text-purple-600">94%</div>
+                      <div className="text-sm text-gray-600">Completion Rate</div>
+                      <div className="text-xs text-purple-600 mt-1">Above Average</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Call to Action */}
+                <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 p-6 rounded-lg text-white text-center">
+                  <h4 className="text-xl font-bold mb-2">🚀 Continue Sua Jornada!</h4>
+                  <p className="mb-4 opacity-90">
+                    Você está a apenas 150 XP do próximo level. Continue aprendendo para desbloquear novos badges!
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <Button variant="secondary" className="bg-white text-orange-600 hover:bg-gray-100">
+                      🎯 Ver Challenges
+                    </Button>
+                    <Button variant="secondary" className="bg-white text-orange-600 hover:bg-gray-100">
+                      📊 Analytics Detalhadas
+                    </Button>
                   </div>
                 </div>
               </CardContent>
